@@ -1,4 +1,5 @@
 # Computer Craft Package Manager Registry
 
-> The registry for the ComputerCraft Package manager.
-> A package manager for ComputerCraft and ComputerCraft: Tweaked.
+> The primary registry for the ComputerCraft Package Manager.
+> 
+> The package manager for ComputerCraft and ComputerCraft: Tweaked.
