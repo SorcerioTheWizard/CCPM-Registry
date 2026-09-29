@@ -1,0 +1,11 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://github.com/Sarxzer/cc-blockly-editor",
+            "path": "bin/cc-blockly-editor.lua",
+            "sha256": "1085f84d1bc65cbe3a487ea7788910fe793d281aebdd013ff97afbd986916b58"
+        }
+    ]
+}
