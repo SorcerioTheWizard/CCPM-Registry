@@ -182,6 +182,8 @@ For each project, the sync:
 - Keeps a package's name forever once assigned, even if the project is renamed, and adds the project's ID to names that would clash.
 - Marks projects the source no longer lists as `delisted`, which leaves them out of the published index but keeps their versions.
 
+Mirroring never costs authors their stats: every time CCPM installs a synced project, it reports the download to the source, so Pinestore download counts keep growing exactly as if the project were installed from Pinestore directly.
+
 Synced packages are generated; never edit them by hand.
 Published versions never change, the same as packages published directly.
 
