@@ -1,0 +1,27 @@
+[project]
+name = "ccpm-registry"
+version = "0.1.0"
+description = "Tools for maintaining the Computer Craft Package Manager registry."
+authors = [
+    { name = "SorcerioTheWizard", email = "sorceriothewizard@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "httpx>=0.28.1",
+    "jsonschema>=4.26.0",
+]
+
+[project.scripts]
+ccpm-registry = "ccpm_registry.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.9.21,<0.10.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

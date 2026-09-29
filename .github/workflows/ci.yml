@@ -1,0 +1,72 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: astral-sh/setup-uv@v6
+
+      - name: Install
+        run: uv sync --locked
+
+      - name: Test the tools
+        run: uv run pytest
+
+      # Compare pull requests to their target and pushes to the previous commit
+      - name: Find the base revision
+        id: base
+        env:
+          EVENT: ${{ github.event_name }}
+          BASE_REF: ${{ github.base_ref }}
+          BEFORE: ${{ github.event.before }}
+        run: |
+          if [ "$EVENT" = "pull_request" ]; then
+            echo "ref=origin/$BASE_REF" >> "$GITHUB_OUTPUT"
+          elif [ -n "$BEFORE" ] && [ "$BEFORE" != "0000000000000000000000000000000000000000" ]; then
+            echo "ref=$BEFORE" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Validate
+        env:
+          BASE: ${{ steps.base.outputs.ref }}
+        run: uv run ccpm-registry validate ${BASE:+--base "$BASE"}
+
+      - name: Verify new files
+        if: steps.base.outputs.ref != ''
+        env:
+          BASE: ${{ steps.base.outputs.ref }}
+        run: uv run ccpm-registry verify --base "$BASE"
+
+  publish:
+    needs: check
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v6
+
+      - name: Build
+        run: uv run --locked ccpm-registry build --out dist
+
+      # Replace the `dist` branch with the fresh build
+      - name: Publish to the dist branch
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd dist
+          git init -q -b dist
+          git add -A
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -q -m "Publish $GITHUB_SHA"
+          git push -f -q "https://x-access-token:$TOKEN@github.com/$GITHUB_REPOSITORY.git" dist

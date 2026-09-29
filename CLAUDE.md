@@ -10,9 +10,23 @@
 
 This project is a registry for the Computer Craft Package Manager for Minecraft's Computer Craft mod.
 
+The client lives in a separate repository, [ComputerCraft-Package-Manager](https://github.com/SorcerioTheWizard/ComputerCraft-Package-Manager), which reads the build this repository publishes.
+
+### Layout
+
+- `packages/<name>/package.json` holds a package's metadata and `packages/<name>/<version>.json` holds one immutable version manifest.
+- `schemas/` holds the JSON Schemas for both files. The Python tools load them, so they are the single source of truth for structure.
+- `hosts.json` lists the URL prefixes package files may be downloaded from.
+- `src/ccpm_registry/` holds the tools: loading (`registry.py`), rule checks (`validate.py`), hash checks (`verify.py`), git comparisons (`history.py`), the published build (`build.py`), and the CLI (`cli.py`).
+- CI publishes the build to the `dist` branch. Never commit to `dist` by hand.
+
 ### Lua
 
-TODO: Fill this out
+This repository contains no Lua. Package files are Lua hosted elsewhere and only referenced here by URL and hash.
+
+The version range rules in `semver.py` are a contract shared with the client's Lua implementation in `src/lib/ccpm/semver.lua`. Any change to the range syntax must be made in both repositories.
+
+The published format (`build.py`) is read by the client. Bump `INDEX_FORMAT` for any change clients cannot safely ignore.
 
 ### Python
 
@@ -20,6 +34,8 @@ Any Python used in this project is managed by `uv`.
 
 - Always run Python through `uv`, as in `uv run python ...` and `uv run pytest`. Never call a bare `python`, `pip`, or the `.venv` interpreter directly.
 - Add and remove dependencies with `uv add` and `uv remove`, never by editing `pyproject.toml` by hand.
+- Run the tools as `uv run ccpm-registry <validate|verify|build|hash>` or, equivalently, `uv run main.py <command>`. Run `uv run pytest` and `uv run ccpm-registry validate` before presenting work.
+- Tests never touch the network. Use `httpx.MockTransport` and the `builder` fixture in `tests/conftest.py`.
 
 ## Code Style
 

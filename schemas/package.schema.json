@@ -1,0 +1,58 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://raw.githubusercontent.com/SorcerioTheWizard/CCPM-Registry/master/schemas/package.schema.json",
+    "title": "CCPM Package",
+    "description": "Metadata shared by every version of a package, stored as `packages/<name>/package.json`.",
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["name", "description", "author"],
+    "properties": {
+        "$schema": {
+            "type": "string"
+        },
+        "name": {
+            "description": "The package name. Must match the folder name.",
+            "type": "string",
+            "pattern": "^([a-z0-9][a-z0-9_-]*/)?[a-z0-9][a-z0-9_-]*$",
+            "maxLength": 64
+        },
+        "description": {
+            "description": "A one or two sentence summary shown in search results.",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+        },
+        "author": {
+            "description": "The name of the author or team.",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+        },
+        "license": {
+            "description": "An SPDX license identifier, like `MIT`.",
+            "type": "string",
+            "maxLength": 64
+        },
+        "repository": {
+            "description": "Where the source code lives.",
+            "type": "string",
+            "pattern": "^https://"
+        },
+        "homepage": {
+            "description": "A page with documentation or screenshots.",
+            "type": "string",
+            "pattern": "^https://"
+        },
+        "tags": {
+            "description": "Search keywords.",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9-]*$",
+                "maxLength": 32
+            },
+            "uniqueItems": true,
+            "maxItems": 10
+        }
+    }
+}
