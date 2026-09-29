@@ -1,0 +1,7 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "installer",
+    "installer": {
+        "command": "wget run https://git.astronand.dev/Hyperion/HyperionOS/raw/branch/main/installers/HyperionOS-install-cct.lua"
+    }
+}

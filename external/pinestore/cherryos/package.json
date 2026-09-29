@@ -1,0 +1,14 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/cherryos",
+    "description": "V5 is out",
+    "author": "CherryTheCat",
+    "tags": [
+        "os"
+    ],
+    "origin": {
+        "source": "pinestore",
+        "id": "148",
+        "url": "https://pinestore.cc/projects/148/cherryos"
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/the-button",
+    "description": "Bored? Press the button!",
+    "author": "Michiel",
+    "tags": [
+        "quirky",
+        "fun"
+    ],
+    "repository": "https://github.com/MichielP1807/CC-Bored-Button",
+    "origin": {
+        "source": "pinestore",
+        "id": "8",
+        "url": "https://pinestore.cc/projects/8/the-button"
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/turmitor",
+    "description": "Turtle + Monitor = Turmitor",
+    "author": "Fatboychummy",
+    "tags": [
+        "library",
+        "fun",
+        "turtle"
+    ],
+    "repository": "https://github.com/Fatboychummy-CC/Turmitor",
+    "origin": {
+        "source": "pinestore",
+        "id": "80",
+        "url": "https://pinestore.cc/projects/80/turmitor"
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/pumpkin-carver",
+    "description": "Enjoy the fun process of carving pumpkins now from the comfort of your ComputerCraft computer!",
+    "author": "Xella",
+    "tags": [
+        "audio",
+        "quirky",
+        "fun"
+    ],
+    "repository": "https://github.com/Xella37/Pumpkin-Carver",
+    "origin": {
+        "source": "pinestore",
+        "id": "118",
+        "url": "https://pinestore.cc/projects/118/pumpkin-carver"
+    }
+}

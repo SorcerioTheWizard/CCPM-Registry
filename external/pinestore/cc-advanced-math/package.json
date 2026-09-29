@@ -1,0 +1,17 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/cc-advanced-math",
+    "description": "This datapack adds multiple advanced mathematical libraries including: - Quaternions   - Allows you to create, manipulate, and utilze Quaternions! - Matrices   - Allows you to create, manipulate...",
+    "author": "TechTastic",
+    "tags": [
+        "resourcep",
+        "utility",
+        "library"
+    ],
+    "repository": "https://github.com/TechTastic/Advanced-Math",
+    "origin": {
+        "source": "pinestore",
+        "id": "235",
+        "url": "https://pinestore.cc/projects/235/cc-advanced-math"
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/block-daw",
+    "description": "Compose your own music using this Computer craft Digital Audio Workspace!",
+    "author": "Ouroboros",
+    "tags": [
+        "fun",
+        "emulator",
+        "utility",
+        "audio"
+    ],
+    "origin": {
+        "source": "pinestore",
+        "id": "176",
+        "url": "https://pinestore.cc/projects/176/block-daw"
+    }
+}

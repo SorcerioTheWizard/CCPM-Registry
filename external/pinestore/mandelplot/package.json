@@ -1,0 +1,16 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/mandelplot",
+    "description": "Simple Mandelbrot explorer.",
+    "author": "cyberbit",
+    "tags": [
+        "fun",
+        "quirky"
+    ],
+    "repository": "https://gist.github.com/cyberbit/762ecc475eaab511cb6191052a47a5e3",
+    "origin": {
+        "source": "pinestore",
+        "id": "65",
+        "url": "https://pinestore.cc/projects/65/mandelplot"
+    }
+}

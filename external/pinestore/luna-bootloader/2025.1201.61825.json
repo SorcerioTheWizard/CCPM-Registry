@@ -1,0 +1,7 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "installer",
+    "installer": {
+        "command": "wget run https://codeberg.org/StikyPiston/luna/raw/branch/main/install.lua"
+    }
+}

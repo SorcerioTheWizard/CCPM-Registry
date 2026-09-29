@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/jukebox",
+    "description": "An easy to use jukebox, Simple add some songs url and jam out. don't forget a speaker. You can set up reactive lights that flash to the music by attaching a redstone integrator from advanced...",
+    "author": "TyZak02",
+    "tags": [
+        "audio",
+        "fun"
+    ],
+    "origin": {
+        "source": "pinestore",
+        "id": "143",
+        "url": "https://pinestore.cc/projects/143/jukebox"
+    }
+}

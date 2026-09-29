@@ -1,0 +1,17 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/bank-of-computercraft",
+    "description": "Bank Of ComputerCraft is a universal banking system synced across all servers!",
+    "author": "TKB Studios",
+    "tags": [
+        "utility",
+        "pocket",
+        "fun"
+    ],
+    "repository": "https://github.com/tkbstudios/ccbank-client",
+    "origin": {
+        "source": "pinestore",
+        "id": "67",
+        "url": "https://pinestore.cc/projects/67/bank-of-computercraft"
+    }
+}

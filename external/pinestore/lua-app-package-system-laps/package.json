@@ -1,0 +1,14 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/lua-app-package-system-laps",
+    "description": "I know most of you don't want another package manager. That's completely fine. I created LAPS as a way to learn Lua and Computer Craft.",
+    "author": "Devcat",
+    "tags": [
+        "utility"
+    ],
+    "origin": {
+        "source": "pinestore",
+        "id": "52",
+        "url": "https://pinestore.cc/projects/52/lua-app-package-system-laps"
+    }
+}

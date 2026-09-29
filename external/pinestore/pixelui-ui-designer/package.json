@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/pixelui-ui-designer",
+    "description": "A UI Designer for the PixelUI Framework.",
+    "author": "Shlomo",
+    "tags": [
+        "utility"
+    ],
+    "repository": "https://github.com/Shlomo1412/XCC",
+    "origin": {
+        "source": "pinestore",
+        "id": "195",
+        "url": "https://pinestore.cc/projects/195/pixelui-ui-designer"
+    }
+}

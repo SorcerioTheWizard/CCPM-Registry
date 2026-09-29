@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/zood",
+    "description": "Zood is a Lua library for ComputerCraft that brings type safety and schema validation to Lua. Inspired by Zod for TypeScript, Zood makes it easy to validate and transform data, handle errors, and buil",
+    "author": "Fabra",
+    "tags": [
+        "library"
+    ],
+    "repository": "https://github.com/ivanoliverfabra/zood",
+    "origin": {
+        "source": "pinestore",
+        "id": "135",
+        "url": "https://pinestore.cc/projects/135/zood"
+    }
+}

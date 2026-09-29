@@ -1,0 +1,17 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/kubeui",
+    "description": "KubeUI is a small CC:Tweaked GUI library for computers and monitors. Features include buttons, labels, checkboxes, sliders, pixel positioning, callbacks, colors, and mouse handling. It supports a...",
+    "author": "Kuberow",
+    "tags": [
+        "fun",
+        "utility",
+        "library"
+    ],
+    "repository": "https://github.com/Kuberow/KubeUI",
+    "origin": {
+        "source": "pinestore",
+        "id": "203",
+        "url": "https://pinestore.cc/projects/203/kubeui"
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://github.com/Shlomo1412/XCC",
+            "path": "bin/XCC.lua",
+            "sha256": "55341331a3c6621da2c772fc7f6fa10a847f4f5a305e2739cbfff1966a98f9ee"
+        }
+    ]
+}

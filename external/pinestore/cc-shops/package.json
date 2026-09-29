@@ -1,0 +1,17 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/cc-shops",
+    "description": "ComputerCraft integration for Simple Shops",
+    "author": "TechTastic",
+    "tags": [
+        "turtle",
+        "mod",
+        "utility"
+    ],
+    "repository": "https://github.com/TechTastic/CC-Shops",
+    "origin": {
+        "source": "pinestore",
+        "id": "92",
+        "url": "https://pinestore.cc/projects/92/cc-shops"
+    }
+}

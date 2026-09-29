@@ -1,0 +1,16 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/obsi-game-engine-1-5-0",
+    "description": "2D game engine that was designed specifically for CC:Tweaked.",
+    "author": "Sima :3",
+    "tags": [
+        "utility",
+        "library"
+    ],
+    "repository": "https://github.com/simadude/obsi",
+    "origin": {
+        "source": "pinestore",
+        "id": "27",
+        "url": "https://pinestore.cc/projects/27/obsi-game-engine-1-5-0"
+    }
+}

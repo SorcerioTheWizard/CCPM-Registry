@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/microcraft-helper",
+    "description": "Microcraft helper is a tool for modpacks that take \"microcrafting\" to the max, like GregTech, where crafting some low to mid-tier items takes 20-30 steps. It doesn't craft for you, but creates a plan.",
+    "author": "Fatboychummy",
+    "tags": [
+        "utility"
+    ],
+    "repository": "https://github.com/Fatboychummy-CC/Microcraft-Helper/",
+    "origin": {
+        "source": "pinestore",
+        "id": "56",
+        "url": "https://pinestore.cc/projects/56/microcraft-helper"
+    }
+}

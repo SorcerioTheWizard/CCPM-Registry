@@ -1,0 +1,14 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/minebreaker",
+    "description": "A remake of the classic brick breaker game, currently only 10 levels to play, but still gets pretty difficult. maybe someone can convince me to add a random level function.",
+    "author": "TyZak02",
+    "tags": [
+        "fun"
+    ],
+    "origin": {
+        "source": "pinestore",
+        "id": "134",
+        "url": "https://pinestore.cc/projects/134/minebreaker"
+    }
+}

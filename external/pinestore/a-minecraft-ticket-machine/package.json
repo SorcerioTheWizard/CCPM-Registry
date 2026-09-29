@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/a-minecraft-ticket-machine",
+    "description": "How to Use the Ticket Machine? This guide provides instructions on how to set up and operate the ticket machine system.",
+    "author": "Henry_Du",
+    "tags": [
+        "emulator"
+    ],
+    "repository": "https://github.com/HenryDu8133/Minecraft-ComputerCraft-Ticket-Machine",
+    "origin": {
+        "source": "pinestore",
+        "id": "133",
+        "url": "https://pinestore.cc/projects/133/a-minecraft-ticket-machine"
+    }
+}

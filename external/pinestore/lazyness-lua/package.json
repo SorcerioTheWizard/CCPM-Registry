@@ -1,0 +1,14 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/lazyness-lua",
+    "description": "I forgot to make something for the jam, So have this I made in a minute because I ain't got enough time. (Just give me a zero.)",
+    "author": "{- Resonance -}",
+    "tags": [
+        "quirky"
+    ],
+    "origin": {
+        "source": "pinestore",
+        "id": "260",
+        "url": "https://pinestore.cc/projects/260/lazyness-lua"
+    }
+}

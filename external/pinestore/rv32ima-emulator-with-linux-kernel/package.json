@@ -1,0 +1,17 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/rv32ima-emulator-with-linux-kernel",
+    "description": "A full RiscV 32-bit IMA instruction set emulator, capable of booting Linux and running bare-metal binaries compiled from C or Rust.",
+    "author": "Minki the Avali",
+    "tags": [
+        "utility",
+        "emulator",
+        "os"
+    ],
+    "repository": "https://codeberg.org/mueller_minki/CC-tweaked-stuff/src/branch/main/rv32_emu",
+    "origin": {
+        "source": "pinestore",
+        "id": "231",
+        "url": "https://pinestore.cc/projects/231/rv32ima-emulator-with-linux-kernel"
+    }
+}

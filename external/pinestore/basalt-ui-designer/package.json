@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/basalt-ui-designer",
+    "description": "A Visual UI Designer for the Basalt Framework.",
+    "author": "Shlomo",
+    "tags": [
+        "utility"
+    ],
+    "repository": "https://github.com/Shlomo1412/xcc",
+    "origin": {
+        "source": "pinestore",
+        "id": "194",
+        "url": "https://pinestore.cc/projects/194/basalt-ui-designer"
+    }
+}

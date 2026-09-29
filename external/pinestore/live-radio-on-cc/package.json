@@ -1,0 +1,17 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/live-radio-on-cc",
+    "description": "1. Download app.py",
+    "author": "Tom",
+    "tags": [
+        "audio",
+        "utility",
+        "quirky",
+        "fun"
+    ],
+    "origin": {
+        "source": "pinestore",
+        "id": "150",
+        "url": "https://pinestore.cc/projects/150/live-radio-on-cc"
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/smeltery-controller",
+    "description": "A nice-looking auto-casting system for your Tinkers' Construct Smeltery!",
+    "author": "Fatboychummy",
+    "tags": [
+        "utility"
+    ],
+    "repository": "https://github.com/Fatboychummy-CC/Smeltery-Controller/tree/1.18",
+    "origin": {
+        "source": "pinestore",
+        "id": "45",
+        "url": "https://pinestore.cc/projects/45/smeltery-controller"
+    }
+}

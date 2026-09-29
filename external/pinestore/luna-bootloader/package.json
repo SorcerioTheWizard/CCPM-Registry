@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/luna-bootloader",
+    "description": "A bootloader for CC",
+    "author": "StikyPiston",
+    "tags": [
+        "utility"
+    ],
+    "repository": "https://codeberg.org/StikyPiston/luna",
+    "origin": {
+        "source": "pinestore",
+        "id": "208",
+        "url": "https://pinestore.cc/projects/208/luna-bootloader"
+    }
+}

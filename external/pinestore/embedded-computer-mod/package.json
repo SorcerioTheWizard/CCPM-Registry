@@ -1,0 +1,17 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/embedded-computer-mod",
+    "description": "Addon for CC:Tweaked that adds the \"Embedded Computer\" and a few other goodies to improve the multiplayer experience",
+    "author": "rabiesland",
+    "tags": [
+        "utility",
+        "quirky",
+        "mod"
+    ],
+    "repository": "https://github.com/rabiesland/EmbeddedComputerMod",
+    "origin": {
+        "source": "pinestore",
+        "id": "193",
+        "url": "https://pinestore.cc/projects/193/embedded-computer-mod"
+    }
+}

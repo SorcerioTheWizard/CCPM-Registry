@@ -1,0 +1,16 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/redos-file-system",
+    "description": "This is my first OS atleast it's alpha version",
+    "author": "RedTech0",
+    "tags": [
+        "utility",
+        "os"
+    ],
+    "repository": "https://github.com/Redtech0inc/RedOS-cc-Tweaked-",
+    "origin": {
+        "source": "pinestore",
+        "id": "191",
+        "url": "https://pinestore.cc/projects/191/redos-file-system"
+    }
+}

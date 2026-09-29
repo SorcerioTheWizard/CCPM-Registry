@@ -1,0 +1,7 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "installer",
+    "installer": {
+        "command": "wget run https://pinestore.cc/d/psi/265"
+    }
+}

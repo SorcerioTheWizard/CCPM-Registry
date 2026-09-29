@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/kubeui-designer-xcc",
+    "description": "A UI Designer for the KubeUI Framework",
+    "author": "Shlomo",
+    "tags": [
+        "utility"
+    ],
+    "repository": "https://github.com/Shlomo1412/xcc",
+    "origin": {
+        "source": "pinestore",
+        "id": "204",
+        "url": "https://pinestore.cc/projects/204/kubeui-designer-xcc"
+    }
+}

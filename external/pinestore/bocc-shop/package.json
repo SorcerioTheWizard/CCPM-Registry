@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/bocc-shop",
+    "description": "The BOCC Shop allows you to sell items from an inventory using the BOCC economy.",
+    "author": "TKB Studios",
+    "tags": [
+        "fun"
+    ],
+    "repository": "https://github.com/tkbstudios/ccbank-shop",
+    "origin": {
+        "source": "pinestore",
+        "id": "68",
+        "url": "https://pinestore.cc/projects/68/bocc-shop"
+    }
+}

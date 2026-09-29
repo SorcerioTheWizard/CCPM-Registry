@@ -1,0 +1,11 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://raw.githubusercontent.com/fatboychummy/Advent-Of-Code/bruh/challenge.lua",
+            "path": "bin/challenge.lua",
+            "sha256": "2b91760bf78fbb245536e4a5e2b83864cd2fc3718653ef89946f23add997c508"
+        }
+    ]
+}

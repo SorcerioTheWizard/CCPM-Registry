@@ -1,0 +1,11 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://raw.githubusercontent.com/MCJack123/cash/master/cash.lua",
+            "path": "bin/cash.lua",
+            "sha256": "b7eb5340e177aef62d3853be73ed485a0836702960c8089d01336b3266d4f88c"
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/racecarturtles",
+    "description": "A recreation of a game my family would distract me with as a graph-paper-obsessed child. Carve out a racetrack and carefully manage your turtle's velocity to reach the end before your friends do!",
+    "author": "MossLizard",
+    "tags": [
+        "turtle",
+        "fun"
+    ],
+    "repository": "https://github.com/mossLizard/pinejam2025_racecarTurtles.git",
+    "origin": {
+        "source": "pinestore",
+        "id": "182",
+        "url": "https://pinestore.cc/projects/182/racecarturtles"
+    }
+}

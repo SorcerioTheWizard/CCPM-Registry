@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/pinestore-api-testing",
+    "description": "This project page serves as a way for me to test api endpoints. I do not recommend following this project, as you may get rapid-fire notifications as tests are ran.",
+    "author": "Fatboychummy",
+    "tags": [
+        "utility"
+    ],
+    "repository": "https://github.com/Fatboychummy-CC/Libraries",
+    "origin": {
+        "source": "pinestore",
+        "id": "87",
+        "url": "https://pinestore.cc/projects/87/pinestore-api-testing"
+    }
+}

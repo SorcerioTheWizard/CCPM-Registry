@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/ccdrones",
+    "description": "a small sandbox demonstration of a drone control system",
+    "author": "hexell_dessin",
+    "tags": [
+        "fun"
+    ],
+    "repository": "https://github.com/hexelll/ccdrones",
+    "origin": {
+        "source": "pinestore",
+        "id": "171",
+        "url": "https://pinestore.cc/projects/171/ccdrones"
+    }
+}

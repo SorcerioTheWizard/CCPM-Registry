@@ -1,0 +1,16 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/dutils",
+    "description": "A small and hopefully efficient utilities suite.",
+    "author": "Dusk",
+    "tags": [
+        "fun",
+        "utility"
+    ],
+    "repository": "https://github.com/XDuskAshes/dutils",
+    "origin": {
+        "source": "pinestore",
+        "id": "86",
+        "url": "https://pinestore.cc/projects/86/dutils"
+    }
+}

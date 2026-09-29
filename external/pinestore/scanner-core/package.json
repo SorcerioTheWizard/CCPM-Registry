@@ -1,0 +1,17 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/scanner-core",
+    "description": "An ore vein scanner backend for computercraft and advanced peripherals.",
+    "author": "Saithe",
+    "tags": [
+        "library",
+        "utility",
+        "turtle"
+    ],
+    "repository": "https://github.com/Saithe6/scanner-core",
+    "origin": {
+        "source": "pinestore",
+        "id": "180",
+        "url": "https://pinestore.cc/projects/180/scanner-core"
+    }
+}

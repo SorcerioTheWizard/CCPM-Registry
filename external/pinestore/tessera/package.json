@@ -1,0 +1,17 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/tessera",
+    "description": "A fun puzzle game for ComputerCrafts, you have probably seen something like it before.",
+    "author": "aximum",
+    "tags": [
+        "puzzle",
+        "audio",
+        "fun"
+    ],
+    "repository": "https://github.com/aximu4/Tessera",
+    "origin": {
+        "source": "pinestore",
+        "id": "188",
+        "url": "https://pinestore.cc/projects/188/tessera"
+    }
+}

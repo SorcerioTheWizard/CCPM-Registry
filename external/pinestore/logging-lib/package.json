@@ -1,0 +1,16 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/logging-lib",
+    "description": "This provides a simple API for logging in ComputerCraft. It provides colored logs, allows you to save logs to a file and will be able to do more in the future!",
+    "author": "TKB Studios",
+    "tags": [
+        "library",
+        "utility"
+    ],
+    "repository": "https://github.com/tkbstudios/CC-libs",
+    "origin": {
+        "source": "pinestore",
+        "id": "69",
+        "url": "https://pinestore.cc/projects/69/logging-lib"
+    }
+}

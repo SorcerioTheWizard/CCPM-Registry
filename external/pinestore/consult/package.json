@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/consult",
+    "description": "CONSULT",
+    "author": "Sammy",
+    "tags": [
+        "utility"
+    ],
+    "repository": "https://consult.madefor.cc/",
+    "origin": {
+        "source": "pinestore",
+        "id": "20",
+        "url": "https://pinestore.cc/projects/20/consult"
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/advent-of-code-runner",
+    "description": "A simple program that loads and runs challenges for Advent of Code. It also grabs your puzzle input for you!",
+    "author": "Fatboychummy",
+    "tags": [
+        "puzzle",
+        "utility",
+        "fun"
+    ],
+    "repository": "https://github.com/fatboychummy/Advent-Of-Code/tree/bruh",
+    "origin": {
+        "source": "pinestore",
+        "id": "42",
+        "url": "https://pinestore.cc/projects/42/advent-of-code-runner"
+    }
+}

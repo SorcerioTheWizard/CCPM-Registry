@@ -1,0 +1,16 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/racing-ai",
+    "description": "My submission for PineJam! A small racing AI for a turtle! Check the main description for how to use.",
+    "author": "Daedalus",
+    "tags": [
+        "action",
+        "turtle",
+        "fun"
+    ],
+    "origin": {
+        "source": "pinestore",
+        "id": "166",
+        "url": "https://pinestore.cc/projects/166/racing-ai"
+    }
+}

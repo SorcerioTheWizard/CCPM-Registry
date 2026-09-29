@@ -1,0 +1,14 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/readln",
+    "description": "readln is a easy to use replacement for the basic read function from computer craft",
+    "author": "hexell_dessin",
+    "tags": [
+        "library"
+    ],
+    "origin": {
+        "source": "pinestore",
+        "id": "88",
+        "url": "https://pinestore.cc/projects/88/readln"
+    }
+}

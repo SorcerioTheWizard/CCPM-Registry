@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/lightos",
+    "description": "lightOS is open-source project  With Unix-like style",
+    "author": "Yaroslav",
+    "tags": [
+        "os"
+    ],
+    "repository": "https://github.com/redbuttontheare/lightOS",
+    "origin": {
+        "source": "pinestore",
+        "id": "263",
+        "url": "https://pinestore.cc/projects/263/lightos"
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/cc-email",
+    "description": "Email in minecraft!",
+    "author": "somatically aware computer user",
+    "tags": [
+        "utility",
+        "fun"
+    ],
+    "repository": "https://github.com/GabrielleAkers/cc-email",
+    "origin": {
+        "source": "pinestore",
+        "id": "128",
+        "url": "https://pinestore.cc/projects/128/cc-email"
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "installer",
+    "installer": {
+        "command": "wget https://pastebin.com/dl/dcGBBnw6 Branchmine.lua"
+    }
+}

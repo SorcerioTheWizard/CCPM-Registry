@@ -1,0 +1,12 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/pinestore-client",
+    "description": "A simple pinestore client for computercraft",
+    "author": "Cyber",
+    "repository": "https://github.com/CyberL1/pinestore-client",
+    "origin": {
+        "source": "pinestore",
+        "id": "28",
+        "url": "https://pinestore.cc/projects/28/pinestore-client"
+    }
+}

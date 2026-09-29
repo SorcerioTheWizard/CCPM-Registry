@@ -1,0 +1,16 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/pool2",
+    "description": "pool2 is a turtle utility to create 1-deep rectangular pools made up of water source blocks. The water placement and movement patterns are not the most efficient, but they help showcase water flow...",
+    "author": "6_4",
+    "tags": [
+        "utility",
+        "quirky",
+        "turtle"
+    ],
+    "origin": {
+        "source": "pinestore",
+        "id": "100",
+        "url": "https://pinestore.cc/projects/100/pool2"
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://gist.githubusercontent.com/MCJack123/7082da1d2ac725c33ff77389877ad7f4/raw/1f80681b91ab72f0150b4b8129a62a71470d1f86/battleship.lua",
+            "path": "bin/battleship.lua",
+            "sha256": "dbffe500308971efc8d555b2d7cb54ea6212dc8105d1bb0d156374f435be1e56"
+        }
+    ]
+}

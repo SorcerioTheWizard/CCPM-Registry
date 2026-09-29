@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/ccsubsonic",
+    "description": "Opensubsonic API compatible music player, including thumbnails.",
+    "author": "Toga's Biggest Fan",
+    "tags": [
+        "audio",
+        "fun"
+    ],
+    "origin": {
+        "source": "pinestore",
+        "id": "270",
+        "url": "https://pinestore.cc/projects/270/ccsubsonic"
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "installer",
+    "installer": {
+        "command": "wget run https://raw.githubusercontent.com/DrNightheart/CC-Zombies-Repo/refs/heads/main/installers/0.6.0"
+    }
+}

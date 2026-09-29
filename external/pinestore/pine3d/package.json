@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/pine3d",
+    "description": "Most efficient 3d graphics library for ComputerCraft! Easily render tens of thousands of polygons without LuaJIT!",
+    "author": "Xella",
+    "tags": [
+        "library"
+    ],
+    "repository": "https://github.com/Xella37/Pine3D",
+    "origin": {
+        "source": "pinestore",
+        "id": "24",
+        "url": "https://pinestore.cc/projects/24/pine3d"
+    }
+}

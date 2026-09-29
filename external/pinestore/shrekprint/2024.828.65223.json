@@ -1,0 +1,11 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://github.com/ShrekshelleraiserCC/shrekword/releases/latest/download/sprint.lua",
+            "path": "lib/sprint.lua",
+            "sha256": "548ebb9badebfa2dc514818573e2163b0fa5501ec7d69321e0487cee07c989bb"
+        }
+    ]
+}

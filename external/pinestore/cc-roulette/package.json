@@ -1,0 +1,14 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/cc-roulette",
+    "description": "Roulette for Casinos! -Full roulette logic and odds -Max bet of 50 (default) -Fully animated roulette wheel Requires Casino Card",
+    "author": "sxrgini",
+    "tags": [
+        "fun"
+    ],
+    "origin": {
+        "source": "pinestore",
+        "id": "269",
+        "url": "https://pinestore.cc/projects/269/cc-roulette"
+    }
+}

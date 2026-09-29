@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/stock-display",
+    "description": "Display real world stock values. It currently fetches data from the Yahoo Finance API and displays it.",
+    "author": "Octo",
+    "tags": [
+        "utility"
+    ],
+    "repository": "https://github.com/0ctoqus/CC-StockDisplay",
+    "origin": {
+        "source": "pinestore",
+        "id": "103",
+        "url": "https://pinestore.cc/projects/103/stock-display"
+    }
+}

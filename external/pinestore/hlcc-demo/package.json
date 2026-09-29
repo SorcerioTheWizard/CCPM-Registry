@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/hlcc-demo",
+    "description": "A (bad) port of the half-life 2 map coast 04",
+    "author": "aio",
+    "tags": [
+        "fun"
+    ],
+    "repository": "https://github.com/TheAio/HLCC/tree/main/demo",
+    "origin": {
+        "source": "pinestore",
+        "id": "19",
+        "url": "https://pinestore.cc/projects/19/hlcc-demo"
+    }
+}

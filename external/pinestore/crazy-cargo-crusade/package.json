@@ -1,0 +1,17 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/crazy-cargo-crusade",
+    "description": "A game for CC:T where you deliver goodies for your customers in time!",
+    "author": "Sammy",
+    "tags": [
+        "puzzle",
+        "action",
+        "fun"
+    ],
+    "repository": "https://github.com/SammyForReal/CrazyCargoCrusade/",
+    "origin": {
+        "source": "pinestore",
+        "id": "185",
+        "url": "https://pinestore.cc/projects/185/crazy-cargo-crusade"
+    }
+}

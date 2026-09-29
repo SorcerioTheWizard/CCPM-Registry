@@ -1,0 +1,17 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/pinestore-gallery",
+    "description": "Do you want to show off your projects on a nice big monitor? One specifically? Or other specific filters? Configure slideshows showing the pictures you want to see using the PineStore image API endpoi",
+    "author": "Xella",
+    "tags": [
+        "utility",
+        "quirky",
+        "fun"
+    ],
+    "repository": "https://github.com/Xella37/PineStoreGallery",
+    "origin": {
+        "source": "pinestore",
+        "id": "160",
+        "url": "https://pinestore.cc/projects/160/pinestore-gallery"
+    }
+}

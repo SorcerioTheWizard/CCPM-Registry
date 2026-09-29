@@ -1,0 +1,16 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/simplifydig-2-0",
+    "description": "SimplifyDigging is a ComputerCraft program designed to make digging various shapes with a turtle easy and efficient.",
+    "author": "Fatboychummy",
+    "tags": [
+        "utility",
+        "turtle"
+    ],
+    "repository": "https://github.com/Fatboychummy-CC/SimplifyDigging",
+    "origin": {
+        "source": "pinestore",
+        "id": "222",
+        "url": "https://pinestore.cc/projects/222/simplifydig-2-0"
+    }
+}

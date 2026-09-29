@@ -1,0 +1,16 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/herobrine",
+    "description": "A demo for ComputerCraft, written for PineJam 2023.",
+    "author": "JackMacWindows",
+    "tags": [
+        "audio",
+        "fun"
+    ],
+    "repository": "https://github.com/MCJack123/Herobrine/",
+    "origin": {
+        "source": "pinestore",
+        "id": "34",
+        "url": "https://pinestore.cc/projects/34/herobrine"
+    }
+}

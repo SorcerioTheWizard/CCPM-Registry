@@ -1,0 +1,16 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/cc-rubik-s-cube",
+    "description": "A playable Rubik's Cube in ComputerCraft made with Pine3D!",
+    "author": "Michiel",
+    "tags": [
+        "puzzle",
+        "fun"
+    ],
+    "repository": "https://github.com/MichielP1807/CC-Rubiks-Cube",
+    "origin": {
+        "source": "pinestore",
+        "id": "4",
+        "url": "https://pinestore.cc/projects/4/cc-rubik-s-cube"
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/network-utils-mchttp-and-dns",
+    "description": "Your only Ingame HTTP api in CC: Tweaked",
+    "author": "HHOY",
+    "tags": [
+        "pocket",
+        "fun",
+        "library",
+        "utility"
+    ],
+    "repository": "https://github.com/THEHHOY/MCHTTP-and-DNS",
+    "origin": {
+        "source": "pinestore",
+        "id": "187",
+        "url": "https://pinestore.cc/projects/187/network-utils-mchttp-and-dns"
+    }
+}

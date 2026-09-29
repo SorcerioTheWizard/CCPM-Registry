@@ -1,0 +1,11 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://pastebin.com/raw/1W48Lg5Y",
+            "path": "bin/minebreaker.lua",
+            "sha256": "6e181ffce14d3c825eb8fd39bb765211079fc07fd3dd78617108ce0fa1e50661"
+        }
+    ]
+}

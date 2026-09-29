@@ -1,0 +1,16 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/ipod-os",
+    "description": "if you still remember IPodOS then we are almost done!!! you can contribute to our github it would be nice https://github.com/kaykaypoopaa/Ipod-CC-Tweaked",
+    "author": "Ilikeohiovr",
+    "tags": [
+        "os",
+        "pocket"
+    ],
+    "repository": "https://github.com/kaykaypoopaa/Ipod-CC-Tweaked",
+    "origin": {
+        "source": "pinestore",
+        "id": "224",
+        "url": "https://pinestore.cc/projects/224/ipod-os"
+    }
+}

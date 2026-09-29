@@ -1,0 +1,14 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/cc-casino-card",
+    "description": "Card system for casino games",
+    "author": "sxrgini",
+    "tags": [
+        "fun"
+    ],
+    "origin": {
+        "source": "pinestore",
+        "id": "267",
+        "url": "https://pinestore.cc/projects/267/cc-casino-card"
+    }
+}

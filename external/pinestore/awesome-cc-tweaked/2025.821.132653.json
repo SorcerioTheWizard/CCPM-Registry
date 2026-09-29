@@ -1,0 +1,11 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://github.com/Shlomo1412/awesome-cctweaked?tab=readme-ov-file",
+            "path": "bin/awesome-cctweaked.lua",
+            "sha256": "ed9e83514906dcd8d20265816c09afaa17c3598c9ed233b16d30b6ed4aef594a"
+        }
+    ]
+}

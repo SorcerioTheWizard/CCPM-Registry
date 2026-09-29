@@ -1,0 +1,11 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://github.com/MCJack123/Herobrine/releases/download/1.0.1/herobrine.lua",
+            "path": "bin/herobrine.lua",
+            "sha256": "10cc2c2d20ee6e82a9e63e938fc4d0a183b907d55152c58422deeb49863faebe"
+        }
+    ]
+}

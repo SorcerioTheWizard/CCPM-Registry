@@ -1,0 +1,17 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/klattsch-for-cc",
+    "description": "A CC:Tweaked-targeted LUA port of the Klattsch formant speech synthesizer",
+    "author": "Minki the Avali",
+    "tags": [
+        "utility",
+        "library",
+        "audio"
+    ],
+    "repository": "https://codeberg.org/mueller_minki/klattsch-cc",
+    "origin": {
+        "source": "pinestore",
+        "id": "248",
+        "url": "https://pinestore.cc/projects/248/klattsch-for-cc"
+    }
+}

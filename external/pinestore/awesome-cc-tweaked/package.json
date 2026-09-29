@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/awesome-cc-tweaked",
+    "description": "A curated list of awesome resources, libraries, programs, tutorials, and projects for CC:Tweaked, modern ComputerCraft fork for Minecraft.",
+    "author": "Shlomo",
+    "tags": [
+        "utility"
+    ],
+    "repository": "https://github.com/Shlomo1412/awesome-cctweaked?tab=readme-ov-file",
+    "origin": {
+        "source": "pinestore",
+        "id": "192",
+        "url": "https://pinestore.cc/projects/192/awesome-cc-tweaked"
+    }
+}

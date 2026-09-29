@@ -1,0 +1,14 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/keepris",
+    "description": "Persistent Program",
+    "author": ".yuri.enjoyer.",
+    "tags": [
+        "fun"
+    ],
+    "origin": {
+        "source": "pinestore",
+        "id": "217",
+        "url": "https://pinestore.cc/projects/217/keepris"
+    }
+}

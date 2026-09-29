@@ -1,0 +1,18 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/military-strategic-system",
+    "description": "MSOS (Military Support Operating System)",
+    "author": "ソナ",
+    "tags": [
+        "action",
+        "fun",
+        "pocket",
+        "os"
+    ],
+    "repository": "https://github.com/ZonaCZO/Military-system",
+    "origin": {
+        "source": "pinestore",
+        "id": "223",
+        "url": "https://pinestore.cc/projects/223/military-strategic-system"
+    }
+}

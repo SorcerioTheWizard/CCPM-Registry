@@ -1,0 +1,11 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://pastebin.com/raw/RQz9j8Mk",
+            "path": "bin/BuildGenerator.lua",
+            "sha256": "02ff74be7fb01b7b40cf6c54376098fa7215be9c324e7303f2a8e35ddc30a6a2"
+        }
+    ]
+}

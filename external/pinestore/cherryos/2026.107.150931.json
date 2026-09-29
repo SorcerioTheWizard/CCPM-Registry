@@ -1,0 +1,11 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://pastebin.com/raw/b4vp2T5b",
+            "path": "bin/cherryOS.lua",
+            "sha256": "00f70b162ca55b1b3948a43941c3c32638c764485d343c0c75549e2980cdfcf7"
+        }
+    ]
+}

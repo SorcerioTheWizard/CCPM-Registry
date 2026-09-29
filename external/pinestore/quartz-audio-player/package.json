@@ -1,0 +1,17 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/quartz-audio-player",
+    "description": "Quartz is an audio player for ComputerCraft that supports DFPWM and MDFPWMv3 by Drucifer. It can play from music files in disks or play from YouTube links via the Stream button.",
+    "author": "Alex",
+    "tags": [
+        "utility",
+        "fun",
+        "audio"
+    ],
+    "repository": "https://github.com/Ale32bit/Quartz",
+    "origin": {
+        "source": "pinestore",
+        "id": "59",
+        "url": "https://pinestore.cc/projects/59/quartz-audio-player"
+    }
+}

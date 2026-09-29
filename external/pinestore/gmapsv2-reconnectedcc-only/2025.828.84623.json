@@ -1,0 +1,11 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://raw.githubusercontent.com/Noah05Diard-Discord/GMapsV2/refs/heads/main/mapsv2.lua",
+            "path": "bin/mapsv2.lua",
+            "sha256": "ec9fe9c58812c78383453594fb8cd53c88097cb4d3b6f3e4b6d7b96c519ea89d"
+        }
+    ]
+}

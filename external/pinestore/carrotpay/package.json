@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/carrotpay",
+    "description": "CarrotPay is a replacement for most features of KristPay on ReconnectedCC and others which are API compatible.",
+    "author": "Herr Katze",
+    "tags": [
+        "utility"
+    ],
+    "repository": "https://github.com/scmcgowen/carrotpay",
+    "origin": {
+        "source": "pinestore",
+        "id": "44",
+        "url": "https://pinestore.cc/projects/44/carrotpay"
+    }
+}

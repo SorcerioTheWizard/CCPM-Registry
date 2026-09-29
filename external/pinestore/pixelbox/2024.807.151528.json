@@ -1,0 +1,11 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://raw.githubusercontent.com/9551-Dev/pixelbox_lite/refs/heads/master/minified/pixelbox_lite.lua",
+            "path": "lib/pixelbox_lite.lua",
+            "sha256": "cb68bd8e5f40111d46b745279360ff80107913c836c681dc24cab5440d11877d"
+        }
+    ]
+}

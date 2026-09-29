@@ -1,0 +1,14 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/ccgit",
+    "description": "Wanted to get something from github? I made it easier!",
+    "author": "Kuberow",
+    "tags": [
+        "utility"
+    ],
+    "origin": {
+        "source": "pinestore",
+        "id": "156",
+        "url": "https://pinestore.cc/projects/156/ccgit"
+    }
+}

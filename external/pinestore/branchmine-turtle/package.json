@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/branchmine-turtle",
+    "description": "This is a branch-mine program for turtles I cooked up while back. all you do is run the program, and input a number of repetitions for the prompts and off it goes",
+    "author": "SarcomaSlayer",
+    "tags": [
+        "utility",
+        "turtle"
+    ],
+    "origin": {
+        "source": "pinestore",
+        "id": "93",
+        "url": "https://pinestore.cc/projects/93/branchmine-turtle"
+    }
+}

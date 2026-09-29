@@ -1,0 +1,16 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/mindbg",
+    "description": "A small yet advanced Lua debugger for CC",
+    "author": "SpSf",
+    "tags": [
+        "library",
+        "utility"
+    ],
+    "repository": "https://github.com/SpartanSf/mindbg",
+    "origin": {
+        "source": "pinestore",
+        "id": "159",
+        "url": "https://pinestore.cc/projects/159/mindbg"
+    }
+}

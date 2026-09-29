@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/inflow",
+    "description": "multicomputer controller for sending and receiving information",
+    "author": "hexell_dessin",
+    "tags": [
+        "utility"
+    ],
+    "repository": "https://github.com/hexelll/inflow",
+    "origin": {
+        "source": "pinestore",
+        "id": "101",
+        "url": "https://pinestore.cc/projects/101/inflow"
+    }
+}

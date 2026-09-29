@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/quint",
+    "description": "Quint is a OS for ComputerCraft. Includes GUI.",
+    "author": "Kuberow",
+    "tags": [
+        "fun",
+        "os"
+    ],
+    "origin": {
+        "source": "pinestore",
+        "id": "146",
+        "url": "https://pinestore.cc/projects/146/quint"
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "installer",
+    "installer": {
+        "command": "wget https://codeberg.org/mueller_minki/klattsch-cc/archive/beans.zip klattsch.lua"
+    }
+}

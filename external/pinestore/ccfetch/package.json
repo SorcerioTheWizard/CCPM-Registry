@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/ccfetch",
+    "description": "A fetch script for ComputerCraft",
+    "author": "Rainb0wSkeppy",
+    "tags": [
+        "utility"
+    ],
+    "repository": "https://github.com/Rainb0wSkeppy/ccfetch",
+    "origin": {
+        "source": "pinestore",
+        "id": "64",
+        "url": "https://pinestore.cc/projects/64/ccfetch"
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://raw.githubusercontent.com/hexelll/pinejam2026/refs/heads/main/main.lua",
+            "path": "bin/bombasticIsland.lua",
+            "sha256": "004fe390d2540037d24e6bc7f273938f17f62c4f7cb49b9df5fd74311f6d64ae"
+        }
+    ]
+}

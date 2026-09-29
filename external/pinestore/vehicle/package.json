@@ -1,0 +1,17 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/vehicle",
+    "description": "Vehicle is a very efficient mode of transportation using CC turtles with remote control support via a Linux kernel module.",
+    "author": "Patriik",
+    "tags": [
+        "utility",
+        "quirky",
+        "turtle",
+        "fun"
+    ],
+    "origin": {
+        "source": "pinestore",
+        "id": "168",
+        "url": "https://pinestore.cc/projects/168/vehicle"
+    }
+}

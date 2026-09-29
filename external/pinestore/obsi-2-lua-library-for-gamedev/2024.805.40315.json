@@ -1,0 +1,11 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://github.com/simadude/obsi2/releases/",
+            "path": "lib/obsi-2-lua-library-for-gamedev.lua",
+            "sha256": "dbf5eca9e043285ffe8f1be3a9defe005100a257180d8e432167765384d046e3"
+        }
+    ]
+}

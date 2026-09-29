@@ -1,0 +1,18 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/remos",
+    "description": "Remos is an Android inspired multitasking shell for computercraft",
+    "author": "ShreksHellraiser",
+    "tags": [
+        "os",
+        "pocket",
+        "utility",
+        "fun"
+    ],
+    "repository": "https://github.com/MasonGulu/remos",
+    "origin": {
+        "source": "pinestore",
+        "id": "75",
+        "url": "https://pinestore.cc/projects/75/remos"
+    }
+}

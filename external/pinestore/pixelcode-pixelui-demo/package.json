@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/pixelcode-pixelui-demo",
+    "description": "Simple WIP code editor app using PixelUI Framework",
+    "author": "Shlomo",
+    "tags": [
+        "utility"
+    ],
+    "repository": "https://github.com/Shlomo1412/PixelUI/blob/main/code_editor_app.lua",
+    "origin": {
+        "source": "pinestore",
+        "id": "181",
+        "url": "https://pinestore.cc/projects/181/pixelcode-pixelui-demo"
+    }
+}

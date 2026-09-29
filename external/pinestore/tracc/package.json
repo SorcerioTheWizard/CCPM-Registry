@@ -1,0 +1,17 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/tracc",
+    "description": "An XM and more module tracker for ComputerCraft 1.100+.",
+    "author": "JackMacWindows",
+    "tags": [
+        "utility",
+        "audio",
+        "library"
+    ],
+    "repository": "https://github.com/MCJack123/tracc",
+    "origin": {
+        "source": "pinestore",
+        "id": "94",
+        "url": "https://pinestore.cc/projects/94/tracc"
+    }
+}

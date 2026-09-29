@@ -1,0 +1,11 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://raw.githubusercontent.com/Larsh512/pinejam26iforgot/refs/heads/main/sorry.lua",
+            "path": "bin/sorryguys.lua",
+            "sha256": "bffb891ab51a03ce05eb65ee4d019128321adeb4e2d7afaed2b8a09e4429ddd4"
+        }
+    ]
+}

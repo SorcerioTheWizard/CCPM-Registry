@@ -1,0 +1,11 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://github.com/HenryDu8133/Minecraft-ComputerCraft-Ticket-Machine/archive/refs/tags/Tciket-Machine.zip",
+            "path": "bin/Ticket-Machine.lua",
+            "sha256": "f1ae448987e97e40a482a8b0b4c71aff53e5ff01397bff398eaca6aed74e1f92"
+        }
+    ]
+}

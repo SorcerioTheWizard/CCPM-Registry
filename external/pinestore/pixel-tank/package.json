@@ -1,0 +1,14 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/pixel-tank",
+    "description": "BATTLECITY is a classic game on Famicom. The goal of it is to defeat all enemy tanks and defend the base. And now, you can play it in Minecraft!",
+    "author": "Mr_Octopus_2020",
+    "tags": [
+        "fun"
+    ],
+    "origin": {
+        "source": "pinestore",
+        "id": "47",
+        "url": "https://pinestore.cc/projects/47/pixel-tank"
+    }
+}

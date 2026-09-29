@@ -1,0 +1,11 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://pastebin.com/raw/yYchuLGa",
+            "path": "bin/ccgit.lua",
+            "sha256": "efe05752459f0d1ff8f57481ca852e4549e18c978143b93cf98abb044f27c968"
+        }
+    ]
+}

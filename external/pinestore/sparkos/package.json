@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/sparkos",
+    "description": "A simple OS for ComputerCraft!",
+    "author": "StikyPiston",
+    "tags": [
+        "os"
+    ],
+    "repository": "https://codeberg.org/StikyPiston/sparkOS",
+    "origin": {
+        "source": "pinestore",
+        "id": "209",
+        "url": "https://pinestore.cc/projects/209/sparkos"
+    }
+}

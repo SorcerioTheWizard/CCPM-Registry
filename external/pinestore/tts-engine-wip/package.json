@@ -1,0 +1,17 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/tts-engine-wip",
+    "description": "tts-engine, say words in computer craft!",
+    "author": "aio",
+    "tags": [
+        "quirky",
+        "audio",
+        "utility"
+    ],
+    "repository": "https://github.com/TheAio/tts-engine/tree/main",
+    "origin": {
+        "source": "pinestore",
+        "id": "113",
+        "url": "https://pinestore.cc/projects/113/tts-engine-wip"
+    }
+}

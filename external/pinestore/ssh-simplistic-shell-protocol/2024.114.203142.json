@@ -1,0 +1,7 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "installer",
+    "installer": {
+        "command": "wget run https://raw.githubusercontent.com/Ruthenic/cc-ssh/master/install.lua"
+    }
+}

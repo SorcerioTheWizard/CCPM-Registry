@@ -1,0 +1,7 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "installer",
+    "installer": {
+        "command": "pastebin run W5ZkVYSi viluon CCJam-2016 master gravity-girl"
+    }
+}

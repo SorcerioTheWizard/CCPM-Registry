@@ -1,0 +1,17 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/meowsynthcc",
+    "description": "MeowSynth recreated in ComputerCraft!",
+    "author": "Michiel",
+    "tags": [
+        "quirky",
+        "audio",
+        "fun"
+    ],
+    "repository": "https://github.com/MichielP1807/MeowSynthCC",
+    "origin": {
+        "source": "pinestore",
+        "id": "7",
+        "url": "https://pinestore.cc/projects/7/meowsynthcc"
+    }
+}

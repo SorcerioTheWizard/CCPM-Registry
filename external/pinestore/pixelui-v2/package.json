@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/pixelui-v2",
+    "description": "PixelUI Version 2",
+    "author": "Shlomo",
+    "tags": [
+        "library"
+    ],
+    "repository": "https://github.com/Shlomo1412/pixelui-v2",
+    "origin": {
+        "source": "pinestore",
+        "id": "205",
+        "url": "https://pinestore.cc/projects/205/pixelui-v2"
+    }
+}

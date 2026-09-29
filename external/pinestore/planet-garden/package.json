@@ -1,0 +1,14 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/planet-garden",
+    "description": "Space exploration game inspired by Stellaris.",
+    "author": "viluon",
+    "tags": [
+        "fun"
+    ],
+    "origin": {
+        "source": "pinestore",
+        "id": "13",
+        "url": "https://pinestore.cc/projects/13/planet-garden"
+    }
+}

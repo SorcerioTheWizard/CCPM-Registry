@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/cc8x8",
+    "description": "CC8x8 is a WIP low-res 8x8 texture pack for CC: Tweaked. It is ideally used with another 8x8 pack like F8thful.",
+    "author": "Rick Al",
+    "tags": [
+        "resourcep"
+    ],
+    "repository": "https://github.com/Rick-Al/CC8x8",
+    "origin": {
+        "source": "pinestore",
+        "id": "226",
+        "url": "https://pinestore.cc/projects/226/cc8x8"
+    }
+}

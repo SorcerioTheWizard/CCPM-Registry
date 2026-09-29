@@ -1,0 +1,17 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/shrekword",
+    "description": "Word for CC",
+    "author": "ShreksHellraiser",
+    "tags": [
+        "library",
+        "utility",
+        "fun"
+    ],
+    "repository": "https://github.com/ShrekshelleraiserCC/shrekword",
+    "origin": {
+        "source": "pinestore",
+        "id": "114",
+        "url": "https://pinestore.cc/projects/114/shrekword"
+    }
+}

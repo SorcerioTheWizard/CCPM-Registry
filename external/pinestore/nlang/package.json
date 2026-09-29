@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/nlang",
+    "description": "Nlang is a programming language made for computercraft. If you see some bugs please report them in the comments.",
+    "author": "Kuberow",
+    "tags": [
+        "fun",
+        "utility"
+    ],
+    "origin": {
+        "source": "pinestore",
+        "id": "147",
+        "url": "https://pinestore.cc/projects/147/nlang"
+    }
+}

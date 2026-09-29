@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/sss-stylish-storage-system",
+    "description": "SSS(stylish storage system) is a storage system made for cc tweaked",
+    "author": "hexell_dessin",
+    "tags": [
+        "fun"
+    ],
+    "repository": "https://github.com/hexelll/SSS-cc-stylish-storage-system-",
+    "origin": {
+        "source": "pinestore",
+        "id": "70",
+        "url": "https://pinestore.cc/projects/70/sss-stylish-storage-system"
+    }
+}

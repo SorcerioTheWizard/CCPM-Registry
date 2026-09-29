@@ -1,0 +1,16 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/simplify-mapping",
+    "description": "Simplifies mapping your world with Advanced Peripherals' Geoscanner, or Plethora's Block Scanner. It can be used for a variety of purposes, such as pathfinding or simply mapping out your world.",
+    "author": "Fatboychummy",
+    "tags": [
+        "utility",
+        "library"
+    ],
+    "repository": "https://github.com/Fatboychummy-CC/Simplify-Mapping",
+    "origin": {
+        "source": "pinestore",
+        "id": "60",
+        "url": "https://pinestore.cc/projects/60/simplify-mapping"
+    }
+}

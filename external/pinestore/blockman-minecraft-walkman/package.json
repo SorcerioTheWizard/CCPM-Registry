@@ -1,0 +1,17 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/blockman-minecraft-walkman",
+    "description": "A stationary Walkman for Minecraft.",
+    "author": "avigail",
+    "tags": [
+        "quirky",
+        "audio",
+        "fun"
+    ],
+    "repository": "https://github.com/Bluerella/ComputerCraft-Blockman",
+    "origin": {
+        "source": "pinestore",
+        "id": "82",
+        "url": "https://pinestore.cc/projects/82/blockman-minecraft-walkman"
+    }
+}

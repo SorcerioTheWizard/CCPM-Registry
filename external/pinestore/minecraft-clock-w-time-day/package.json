@@ -1,0 +1,14 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/minecraft-clock-w-time-day",
+    "description": "A minecraft world Clock, That displays the minecraft world time and day stat, aka either its day or night. Works without Monitor.",
+    "author": "Tom",
+    "tags": [
+        "utility"
+    ],
+    "origin": {
+        "source": "pinestore",
+        "id": "139",
+        "url": "https://pinestore.cc/projects/139/minecraft-clock-w-time-day"
+    }
+}

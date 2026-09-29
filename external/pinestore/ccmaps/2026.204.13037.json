@@ -1,0 +1,7 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "installer",
+    "installer": {
+        "command": "wget run https://gist.githubusercontent.com/cyberbit/993372d662918aeb4973701ac7122987/raw/ccmaps_install.lua"
+    }
+}

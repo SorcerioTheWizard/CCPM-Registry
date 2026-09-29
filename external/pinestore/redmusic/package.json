@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/redmusic",
+    "description": "Remote music powered by rednet!",
+    "author": "PainfulPaladins",
+    "tags": [
+        "audio"
+    ],
+    "repository": "https://github.com/PainfulPaladins/CC-T-programs/",
+    "origin": {
+        "source": "pinestore",
+        "id": "95",
+        "url": "https://pinestore.cc/projects/95/redmusic"
+    }
+}

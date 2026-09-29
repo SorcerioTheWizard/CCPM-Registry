@@ -1,0 +1,17 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/watermelon-game-3d",
+    "description": "Basically the Suika Watermelon Game, but in 3D!",
+    "author": "Xella",
+    "tags": [
+        "quirky",
+        "puzzle",
+        "fun"
+    ],
+    "repository": "https://github.com/Xella37/Watermelon-Game-3D",
+    "origin": {
+        "source": "pinestore",
+        "id": "32",
+        "url": "https://pinestore.cc/projects/32/watermelon-game-3d"
+    }
+}

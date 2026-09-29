@@ -1,0 +1,16 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/silly-subway-system",
+    "description": "A fully fledged subway system for minecarts!",
+    "author": "connie",
+    "tags": [
+        "fun",
+        "utility"
+    ],
+    "repository": "https://github.com/connorhedgehog/silly-subway-system",
+    "origin": {
+        "source": "pinestore",
+        "id": "183",
+        "url": "https://pinestore.cc/projects/183/silly-subway-system"
+    }
+}

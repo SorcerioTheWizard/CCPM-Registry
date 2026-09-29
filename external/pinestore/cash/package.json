@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/cash",
+    "description": "Introducing the ComputerCraft Advanced Shell (cash), a Bourne-compatible shell for CraftOS. It supports many features you may be used to from Bash and sh, including variables, scripting, quoting...",
+    "author": "JackMacWindows",
+    "tags": [
+        "utility"
+    ],
+    "repository": "https://github.com/MCJack123/cash",
+    "origin": {
+        "source": "pinestore",
+        "id": "39",
+        "url": "https://pinestore.cc/projects/39/cash"
+    }
+}

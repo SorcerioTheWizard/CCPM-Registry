@@ -1,0 +1,17 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/s-a-m-software-automatic-mouth-tts",
+    "description": "S.A.M. - Software Automatic Mouth",
+    "author": "Minki the Avali",
+    "tags": [
+        "fun",
+        "library",
+        "audio"
+    ],
+    "repository": "https://codeberg.org/mueller_minki/CC-tweaked-stuff/src/branch/main/SAM",
+    "origin": {
+        "source": "pinestore",
+        "id": "234",
+        "url": "https://pinestore.cc/projects/234/s-a-m-software-automatic-mouth-tts"
+    }
+}

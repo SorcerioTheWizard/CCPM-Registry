@@ -1,0 +1,11 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://github.com/SammyForReal/CrazyCargoCrusade/releases/download/0.1.0/ccc.lua",
+            "path": "bin/ccc.lua",
+            "sha256": "a1984be94419661367d4164f15bd752e3527e24ca0e4e3ec7677533b3f4bdb43"
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/github-downloader-on-cc",
+    "description": "Collab with @Kuberow",
+    "author": "Tom",
+    "tags": [
+        "utility"
+    ],
+    "origin": {
+        "source": "pinestore",
+        "id": "157",
+        "url": "https://pinestore.cc/projects/157/github-downloader-on-cc"
+    }
+}

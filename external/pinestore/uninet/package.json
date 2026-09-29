@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/uninet",
+    "description": "A lightweight networking solution for computer craft.",
+    "author": "Red Toast",
+    "tags": [
+        "utility"
+    ],
+    "repository": "https://github.com/redtoast/UniNet-CC",
+    "origin": {
+        "source": "pinestore",
+        "id": "125",
+        "url": "https://pinestore.cc/projects/125/uninet"
+    }
+}

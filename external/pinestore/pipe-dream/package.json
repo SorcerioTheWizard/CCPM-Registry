@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/pipe-dream",
+    "description": "Turn your wired network into logistic pipes! Pipe Dream allows you to transfer items and fluids across your wired network.",
+    "author": "Fatboychummy",
+    "tags": [
+        "utility"
+    ],
+    "repository": "https://github.com/Fatboychummy-CC/pipe-dream",
+    "origin": {
+        "source": "pinestore",
+        "id": "89",
+        "url": "https://pinestore.cc/projects/89/pipe-dream"
+    }
+}

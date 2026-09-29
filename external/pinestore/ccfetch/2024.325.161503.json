@@ -1,0 +1,11 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://raw.githubusercontent.com/Rainb0wSkeppy/ccfetch/main/ccfetch.lua",
+            "path": "bin/ccfetch.lua",
+            "sha256": "d05e6d586422dc656562084c0f612588ed9504717db018c26d74c3a7b6e3b0a9"
+        }
+    ]
+}

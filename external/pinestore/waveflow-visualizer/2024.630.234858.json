@@ -1,0 +1,11 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://gist.githubusercontent.com/MichielP1807/9536445bd5773915a58594869049d2ed/raw/f88ce906c961d764b569d998cf60c7c32c510936/waveflow.lua",
+            "path": "bin/waveflow.lua",
+            "sha256": "9e5a5b69bc17edb90e8284c30295788ce71accf1c059b711ed4f9e69cb1f093f"
+        }
+    ]
+}

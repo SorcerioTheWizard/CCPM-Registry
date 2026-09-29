@@ -1,0 +1,11 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://pastebin.com/raw/542kZf4z",
+            "path": "bin/planet-garden.lua",
+            "sha256": "439b888ab426d535519647266b286f12da3825cb3709405821c9c9b452f1c9a7"
+        }
+    ]
+}

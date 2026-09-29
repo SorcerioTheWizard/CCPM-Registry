@@ -1,0 +1,17 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/color-switch",
+    "description": "Program for quickly editing your current color palette.",
+    "author": "Sima :3",
+    "tags": [
+        "quirky",
+        "utility",
+        "fun"
+    ],
+    "repository": "https://github.com/simadude/colorswitch",
+    "origin": {
+        "source": "pinestore",
+        "id": "21",
+        "url": "https://pinestore.cc/projects/21/color-switch"
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/plan9k",
+    "description": "plan9k",
+    "author": "four pebbles",
+    "tags": [
+        "quirky",
+        "utility",
+        "os"
+    ],
+    "repository": "https://codeberg.org/sillygoober123/luaGarbage/src/branch/main/computercraft/projects/plan9k",
+    "origin": {
+        "source": "pinestore",
+        "id": "245",
+        "url": "https://pinestore.cc/projects/245/plan9k"
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/cc-harddisks",
+    "description": "The CC-Harddisks mod is an extension for CC:Tweaked which adds more storage options compatible with the mod. Currently only supports NeoForge.",
+    "author": "Minki the Avali",
+    "tags": [
+        "utility",
+        "mod"
+    ],
+    "repository": "https://codeberg.org/mueller_minki/CC-Harddisks",
+    "origin": {
+        "source": "pinestore",
+        "id": "238",
+        "url": "https://pinestore.cc/projects/238/cc-harddisks"
+    }
+}

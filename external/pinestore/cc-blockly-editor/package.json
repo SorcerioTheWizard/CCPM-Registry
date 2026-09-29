@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/cc-blockly-editor",
+    "description": "The ComputerCraft : Blockly Editor is a visual, block-based code editor for ComputerCraft. It allows users to create Lua scripts for in-game computers, making coding accessible for beginners.",
+    "author": "st sarxzer XI",
+    "tags": [
+        "utility"
+    ],
+    "repository": "https://github.com/Sarxzer/cc-blockly-editor",
+    "origin": {
+        "source": "pinestore",
+        "id": "72",
+        "url": "https://pinestore.cc/projects/72/cc-blockly-editor"
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "installer",
+    "installer": {
+        "command": "wget run https://raw.githubusercontent.com/stuin/RepliCraft/refs/heads/main/install.lua"
+    }
+}

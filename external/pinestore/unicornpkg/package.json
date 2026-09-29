@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/unicornpkg",
+    "description": "unicornpkg is a package manager for ComputerCraft that aims to be reliable, long-lived, and thoughtfully designed.",
+    "author": "Tomodachi94",
+    "tags": [
+        "utility"
+    ],
+    "repository": "https://github.com/unicornpkg/libunicornpkg",
+    "origin": {
+        "source": "pinestore",
+        "id": "43",
+        "url": "https://pinestore.cc/projects/43/unicornpkg"
+    }
+}

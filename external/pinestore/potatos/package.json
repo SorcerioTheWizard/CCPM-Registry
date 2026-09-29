@@ -1,0 +1,17 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/potatos",
+    "description": "\"PotatOS\" stands for \"PotatOS Otiose Transformative Advanced Technology Or Something\". PotatOS is a groundbreaking \"Operating System\" for ComputerCraft.",
+    "author": "gollark",
+    "tags": [
+        "puzzle",
+        "quirky",
+        "os"
+    ],
+    "repository": "https://git.osmarks.net/osmarks/potatOS",
+    "origin": {
+        "source": "pinestore",
+        "id": "33",
+        "url": "https://pinestore.cc/projects/33/potatos"
+    }
+}

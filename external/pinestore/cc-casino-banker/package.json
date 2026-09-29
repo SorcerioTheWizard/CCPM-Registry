@@ -1,0 +1,14 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/cc-casino-banker",
+    "description": "Banker turtle for Casino Card! Put items in chest to deposit, main computer to withdraw :) Happy Gambling!",
+    "author": "sxrgini",
+    "tags": [
+        "fun"
+    ],
+    "origin": {
+        "source": "pinestore",
+        "id": "268",
+        "url": "https://pinestore.cc/projects/268/cc-casino-banker"
+    }
+}

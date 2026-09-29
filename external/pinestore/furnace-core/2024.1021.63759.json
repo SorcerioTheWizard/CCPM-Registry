@@ -1,0 +1,11 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://raw.githubusercontent.com/Saithe6/furnace-core/refs/heads/main/furnace-core.lua",
+            "path": "lib/furnace-core.lua",
+            "sha256": "75ce3660bc422ed89df11242ee38d21103da73cb0c9eaae02670ab386e67fe76"
+        }
+    ]
+}

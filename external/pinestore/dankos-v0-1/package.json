@@ -1,0 +1,17 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/dankos-v0-1",
+    "description": "A Half Joking Operating System that definetly doesnt have a snake called frankie. also Dankpodz.",
+    "author": "{- Resonance -}",
+    "tags": [
+        "quirky",
+        "os",
+        "fun"
+    ],
+    "repository": "https://github.com/Larsh512/DankOS-CC/tree/main",
+    "origin": {
+        "source": "pinestore",
+        "id": "137",
+        "url": "https://pinestore.cc/projects/137/dankos-v0-1"
+    }
+}

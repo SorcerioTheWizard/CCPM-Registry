@@ -1,0 +1,17 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/tortise",
+    "description": "A library that makes working with working with turtles a little bit easier",
+    "author": "Saithe",
+    "tags": [
+        "utility",
+        "library",
+        "turtle"
+    ],
+    "repository": "https://github.com/Saithe6/tortise",
+    "origin": {
+        "source": "pinestore",
+        "id": "179",
+        "url": "https://pinestore.cc/projects/179/tortise"
+    }
+}

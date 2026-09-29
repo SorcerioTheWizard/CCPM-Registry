@@ -1,0 +1,17 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/fireworks-3d",
+    "description": "Simply, 3D cool fireworks to view from your ComputerCraft computer!",
+    "author": "Xella",
+    "tags": [
+        "audio",
+        "quirky",
+        "fun"
+    ],
+    "repository": "https://github.com/Xella37/CC-Fireworks",
+    "origin": {
+        "source": "pinestore",
+        "id": "50",
+        "url": "https://pinestore.cc/projects/50/fireworks-3d"
+    }
+}

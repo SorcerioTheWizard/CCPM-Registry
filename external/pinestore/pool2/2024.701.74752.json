@@ -1,0 +1,11 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://pastebin.com/raw/8tePaCv5",
+            "path": "bin/pool2.lua",
+            "sha256": "2dff2b4b66dcec6400e5d93179c7e5b8732603ea5b4cb5c7eaec7cf0232da558"
+        }
+    ]
+}

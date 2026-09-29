@@ -1,0 +1,18 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/shrekprint",
+    "description": "Fast & Expandable 16 color printer",
+    "author": "ShreksHellraiser",
+    "tags": [
+        "turtle",
+        "utility",
+        "library",
+        "fun"
+    ],
+    "repository": "https://github.com/ShrekshelleraiserCC/shrekword",
+    "origin": {
+        "source": "pinestore",
+        "id": "115",
+        "url": "https://pinestore.cc/projects/115/shrekprint"
+    }
+}

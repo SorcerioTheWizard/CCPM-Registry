@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/irl-weather-app-on-cc-v2",
+    "description": "A Real-Life Weather App for ComputerCraft",
+    "author": "Tom",
+    "tags": [
+        "quirky",
+        "utility"
+    ],
+    "origin": {
+        "source": "pinestore",
+        "id": "199",
+        "url": "https://pinestore.cc/projects/199/irl-weather-app-on-cc-v2"
+    }
+}

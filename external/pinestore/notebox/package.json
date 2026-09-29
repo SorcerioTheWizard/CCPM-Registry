@@ -1,0 +1,17 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/notebox",
+    "description": "A music player for ComputerCraft. Plays .nbs music with easy browsing and downloading from Note Block World. Features playlist system and visualizer.",
+    "author": "Xella",
+    "tags": [
+        "utility",
+        "audio",
+        "fun"
+    ],
+    "repository": "https://github.com/Xella37/Notebox",
+    "origin": {
+        "source": "pinestore",
+        "id": "264",
+        "url": "https://pinestore.cc/projects/264/notebox"
+    }
+}

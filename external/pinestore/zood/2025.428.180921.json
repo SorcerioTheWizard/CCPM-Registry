@@ -1,0 +1,7 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "installer",
+    "installer": {
+        "command": "wget https://p.sewers.cc/zfsup6o5gz/raw z.lua"
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/emulauncher",
+    "description": "A launcher for your CCEmuX / CraftOS-PC computers, allowing you to rename them for easy organization.",
+    "author": "RuiNtD",
+    "tags": [
+        "emulator",
+        "utility"
+    ],
+    "repository": "https://gist.github.com/RuiNtD/13f21d0366636d8511f4d5e049d17cc3",
+    "origin": {
+        "source": "pinestore",
+        "id": "48",
+        "url": "https://pinestore.cc/projects/48/emulauncher"
+    }
+}

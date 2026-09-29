@@ -1,0 +1,17 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/pocketbox",
+    "description": "A music player that plays music from remote URLs defined in playlists. It can play both DFPWM and CD format raw PCM (16-bit little endian PCM at 44100khz with 2 channels) Example playlist is...",
+    "author": "rabiesland",
+    "tags": [
+        "fun",
+        "pocket",
+        "audio"
+    ],
+    "repository": "https://github.com/rabiesland/pocketbox",
+    "origin": {
+        "source": "pinestore",
+        "id": "145",
+        "url": "https://pinestore.cc/projects/145/pocketbox"
+    }
+}

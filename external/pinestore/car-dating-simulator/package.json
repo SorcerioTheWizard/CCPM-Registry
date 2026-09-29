@@ -1,0 +1,16 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/car-dating-simulator",
+    "description": "A Car Dating Simulator made entirely using C compiled to Brainfuck. (Yes, that's why it's so slow.)",
+    "author": "piguman3",
+    "tags": [
+        "fun",
+        "quirky"
+    ],
+    "repository": "https://github.com/piguman3/CarDatingSimBrainfuckPineJam2025EditionLimited",
+    "origin": {
+        "source": "pinestore",
+        "id": "184",
+        "url": "https://pinestore.cc/projects/184/car-dating-simulator"
+    }
+}

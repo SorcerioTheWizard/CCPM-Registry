@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/gmapsv2-reconnectedcc-only",
+    "description": "Check the github page",
+    "author": "▀▄▀▄▀▄Noah05Diard▄▀▄▀▄▀",
+    "tags": [
+        "pocket"
+    ],
+    "repository": "https://github.com/Noah05Diard-Discord/GMapsV2",
+    "origin": {
+        "source": "pinestore",
+        "id": "196",
+        "url": "https://pinestore.cc/projects/196/gmapsv2-reconnectedcc-only"
+    }
+}

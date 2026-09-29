@@ -1,0 +1,17 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/cc-zombies-0-6-slightly-discontinued",
+    "description": "Call of Duty Zombies, ported to CC CC:Zombies Call of CC Zombies Whatever you want to call it, SECOND demo is here! It comes with TWO maps. Nacht Der Untoten  Nuketown 1975 (+Easter Egg!)",
+    "author": "Nightheart",
+    "tags": [
+        "action",
+        "quirky",
+        "fun"
+    ],
+    "repository": "https://github.com/DrNightheart/CC-Zombies-Repo/tree/main",
+    "origin": {
+        "source": "pinestore",
+        "id": "228",
+        "url": "https://pinestore.cc/projects/228/cc-zombies-0-6-slightly-discontinued"
+    }
+}

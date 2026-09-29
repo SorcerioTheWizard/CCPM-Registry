@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/funky-virus",
+    "description": "this is a funky virus",
+    "author": "RedTech0",
+    "tags": [
+        "utility",
+        "quirky"
+    ],
+    "origin": {
+        "source": "pinestore",
+        "id": "178",
+        "url": "https://pinestore.cc/projects/178/funky-virus"
+    }
+}

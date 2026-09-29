@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/ccmaps",
+    "description": "Proof-of-concept global map viewer.",
+    "author": "cyberbit",
+    "tags": [
+        "fun"
+    ],
+    "repository": "https://gist.github.com/cyberbit/b64e2e04b1006778b9077553768e07f4",
+    "origin": {
+        "source": "pinestore",
+        "id": "66",
+        "url": "https://pinestore.cc/projects/66/ccmaps"
+    }
+}

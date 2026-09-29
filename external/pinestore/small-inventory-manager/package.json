@@ -1,0 +1,14 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/small-inventory-manager",
+    "description": "A small script that sorts and manages inventory neer the computer.",
+    "author": "Dragon Voyageur",
+    "tags": [
+        "utility"
+    ],
+    "origin": {
+        "source": "pinestore",
+        "id": "53",
+        "url": "https://pinestore.cc/projects/53/small-inventory-manager"
+    }
+}

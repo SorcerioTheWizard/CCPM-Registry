@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/cobblestone-generator-builder",
+    "description": "Make your turtle a cobblestone (or basalt) generator.",
+    "author": "Dragon Voyageur",
+    "tags": [
+        "quirky",
+        "turtle"
+    ],
+    "origin": {
+        "source": "pinestore",
+        "id": "98",
+        "url": "https://pinestore.cc/projects/98/cobblestone-generator-builder"
+    }
+}

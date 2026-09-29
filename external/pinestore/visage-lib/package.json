@@ -1,0 +1,16 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/visage-lib",
+    "description": "A simple library for managing and ordering monitors in computercraft.",
+    "author": "pisaui tab",
+    "tags": [
+        "utility",
+        "library"
+    ],
+    "repository": "https://github.com/pisauitab/Visage-LIB-CC/tree/main",
+    "origin": {
+        "source": "pinestore",
+        "id": "117",
+        "url": "https://pinestore.cc/projects/117/visage-lib"
+    }
+}

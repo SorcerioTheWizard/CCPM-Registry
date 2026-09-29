@@ -1,0 +1,17 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/plasma-os",
+    "description": "PlasmaOS is a basic shell like craftOS, using it's own shell interface and some new commands. It comes with Bruhb (GRUB-like) bootloader, and can install pre-chosen APT packages. It is compatible...",
+    "author": "Short",
+    "tags": [
+        "fun",
+        "pocket",
+        "utility",
+        "os"
+    ],
+    "origin": {
+        "source": "pinestore",
+        "id": "163",
+        "url": "https://pinestore.cc/projects/163/plasma-os"
+    }
+}

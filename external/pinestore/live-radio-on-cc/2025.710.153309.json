@@ -1,0 +1,11 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://pastebin.com/raw/q2xs8rqU",
+            "path": "bin/music.lua",
+            "sha256": "de0f02aed6c0e08772058ddf7cc06360dab8c74f652257127834fd0a32c33bf8"
+        }
+    ]
+}

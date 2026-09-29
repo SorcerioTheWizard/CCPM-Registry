@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/ooo-clicker",
+    "description": "OOO Clicker is a fun game where you have to click O's to gain points.",
+    "author": "Uranitee",
+    "tags": [
+        "fun"
+    ],
+    "repository": "https://github.com/Jannnn13/cct-stuff",
+    "origin": {
+        "source": "pinestore",
+        "id": "211",
+        "url": "https://pinestore.cc/projects/211/ooo-clicker"
+    }
+}

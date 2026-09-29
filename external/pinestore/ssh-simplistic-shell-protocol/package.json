@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/ssh-simplistic-shell-protocol",
+    "description": "simplistic shell protocol for remotely accessing CraftOS computers",
+    "author": "DustyAngel47",
+    "tags": [
+        "utility"
+    ],
+    "repository": "https://github.com/Ruthenic/cc-ssh",
+    "origin": {
+        "source": "pinestore",
+        "id": "54",
+        "url": "https://pinestore.cc/projects/54/ssh-simplistic-shell-protocol"
+    }
+}

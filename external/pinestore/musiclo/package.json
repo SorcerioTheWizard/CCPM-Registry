@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/musiclo",
+    "description": "A CC:Tweaked music player that's easy to use, doesn't require installation and looks sleek, phew!",
+    "author": "timuzkas",
+    "tags": [
+        "audio"
+    ],
+    "repository": "https://gitlab.com/monosoft2/musiclo",
+    "origin": {
+        "source": "pinestore",
+        "id": "136",
+        "url": "https://pinestore.cc/projects/136/musiclo"
+    }
+}

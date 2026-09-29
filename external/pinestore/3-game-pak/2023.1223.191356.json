@@ -1,0 +1,11 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://pastebin.com/raw/EmLqt5D2",
+            "path": "bin/3gamepak.lua",
+            "sha256": "ecb7b2c4caff479c120ecb8934ca3039eff87a0e4f425c91b0d8bbbfd56ad58d"
+        }
+    ]
+}

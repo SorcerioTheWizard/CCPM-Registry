@@ -1,0 +1,11 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://pastebin.com/raw/jP9CNvYS",
+            "path": "bin/githubdw.lua",
+            "sha256": "0025f8a4347ce7e74da77177b2905f17e8d4b5ea17e9371311da924e4de7899b"
+        }
+    ]
+}

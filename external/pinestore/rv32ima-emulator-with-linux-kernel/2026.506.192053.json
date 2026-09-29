@@ -1,0 +1,7 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "installer",
+    "installer": {
+        "command": "wget https://codeberg.org/mueller_minki/CC-tweaked-stuff/archive/main:rv32_emu.zip rvemu-cc.lua"
+    }
+}

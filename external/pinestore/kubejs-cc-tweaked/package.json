@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/kubejs-cc-tweaked",
+    "description": "KubeJS + CC: Tweaked Mod",
+    "author": "NullPointerException",
+    "tags": [
+        "mod"
+    ],
+    "repository": "https://github.com/wolfieboy09/KubeJS-CC-Tweaked",
+    "origin": {
+        "source": "pinestore",
+        "id": "84",
+        "url": "https://pinestore.cc/projects/84/kubejs-cc-tweaked"
+    }
+}

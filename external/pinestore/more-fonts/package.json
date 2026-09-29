@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/more-fonts",
+    "description": "Introducing More Fonts: a library to print large text using teletext pixels with various fonts, sizes, and text wrapping and spacing options!",
+    "author": "Michiel",
+    "tags": [
+        "library"
+    ],
+    "repository": "https://github.com/MichielP1807/more-fonts/",
+    "origin": {
+        "source": "pinestore",
+        "id": "37",
+        "url": "https://pinestore.cc/projects/37/more-fonts"
+    }
+}

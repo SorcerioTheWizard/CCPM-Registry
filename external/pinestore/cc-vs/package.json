@@ -1,0 +1,17 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/cc-vs",
+    "description": "A simple ComputerCraft x Valkyrien Skies integration addon",
+    "author": "TechTastic",
+    "tags": [
+        "mod",
+        "library",
+        "utility"
+    ],
+    "repository": "https://github.com/TechTastic/CC-VS",
+    "origin": {
+        "source": "pinestore",
+        "id": "91",
+        "url": "https://pinestore.cc/projects/91/cc-vs"
+    }
+}

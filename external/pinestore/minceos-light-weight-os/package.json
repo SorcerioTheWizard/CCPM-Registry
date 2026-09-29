@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/minceos-light-weight-os",
+    "description": "This is an Operating System I built! I only have like 4 months worth of computercraft experience, so its not the best, but hey, I tried my best! and thats all that counts.",
+    "author": "SamirG569",
+    "tags": [
+        "emulator",
+        "os"
+    ],
+    "origin": {
+        "source": "pinestore",
+        "id": "214",
+        "url": "https://pinestore.cc/projects/214/minceos-light-weight-os"
+    }
+}
