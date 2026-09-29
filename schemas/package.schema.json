@@ -53,6 +53,33 @@
             },
             "uniqueItems": true,
             "maxItems": 10
+        },
+        "origin": {
+            "description": "Where an external package was synced from. Set by `ccpm-registry sync`.",
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["source", "id", "url"],
+            "properties": {
+                "source": {
+                    "description": "The external source, which is also the package name prefix.",
+                    "type": "string",
+                    "pattern": "^[a-z0-9][a-z0-9_-]*$"
+                },
+                "id": {
+                    "description": "The project's ID in the external source.",
+                    "type": "string",
+                    "minLength": 1
+                },
+                "url": {
+                    "description": "The project's page in the external source.",
+                    "type": "string",
+                    "pattern": "^https://"
+                }
+            }
+        },
+        "delisted": {
+            "description": "If the external source no longer lists the package. Delisted packages are left out of the published index but keep their versions.",
+            "type": "boolean"
         }
     }
 }

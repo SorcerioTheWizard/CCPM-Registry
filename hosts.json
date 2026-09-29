@@ -2,6 +2,7 @@
     "prefixes": [
         "https://raw.githubusercontent.com/",
         "https://gist.githubusercontent.com/",
+        "https://github.com/",
         "https://pastebin.com/raw/"
     ]
 }

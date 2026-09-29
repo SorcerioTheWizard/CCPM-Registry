@@ -1,0 +1,67 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://raw.githubusercontent.com/SorcerioTheWizard/CCPM-Registry/master/schemas/overrides.schema.json",
+    "title": "CCPM External Source Overrides",
+    "description": "Maintainer corrections applied every time an external source is synced, stored as `external/<source>/overrides.json` and keyed by the project's ID in that source.",
+    "type": "object",
+    "properties": {
+        "$schema": {
+            "type": "string"
+        }
+    },
+    "patternProperties": {
+        "^[A-Za-z0-9_-]+$": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "note": {
+                    "description": "Why the override exists.",
+                    "type": "string"
+                },
+                "skip": {
+                    "description": "Leave the project out of the registry.",
+                    "type": "boolean"
+                },
+                "slug": {
+                    "description": "The name to publish the project under, after the source prefix. Only used when the project is first synced.",
+                    "type": "string",
+                    "pattern": "^[a-z0-9][a-z0-9_-]*$",
+                    "maxLength": 48
+                },
+                "command": {
+                    "description": "A corrected install command, parsed in place of the source's.",
+                    "type": "string",
+                    "minLength": 1
+                },
+                "library": {
+                    "description": "Install a downloaded file as a library in `lib/` rather than a program in `bin/`.",
+                    "type": "boolean"
+                },
+                "dependencies": {
+                    "description": "Packages the project needs, mapped to version ranges.",
+                    "type": "object",
+                    "propertyNames": {
+                        "pattern": "^[a-z0-9][a-z0-9_-]*$"
+                    },
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "compat": {
+                    "description": "The ComputerCraft and Minecraft versions the project works on.",
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "cc": {
+                            "type": "string"
+                        },
+                        "mc": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "additionalProperties": false
+}

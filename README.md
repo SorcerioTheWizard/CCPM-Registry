@@ -2,7 +2,7 @@
 
 > The primary registry for the ComputerCraft Package Manager.
 > 
-> The package manager for ComputerCraft and ComputerCraft: Tweaked.
+> The package manager for ComputerCraft and ComputerCraft: Tweaked with Pinestore (and more) support.
 
 This repository lists the packages that [CCPM](https://github.com/SorcerioTheWizard/ComputerCraft-Package-Manager) can install.
 It only stores metadata; package files stay wherever their authors host them.
@@ -16,6 +16,8 @@ It only stores metadata; package files stay wherever their authors host them.
         * [Install Paths](#install-paths)
         * [Version Ranges](#version-ranges)
     * [Allowed Hosts](#allowed-hosts)
+    * [External Sources](#external-sources)
+        * [Overrides](#overrides)
     * [Development](#development)
 
 ## How It Works
@@ -156,9 +158,50 @@ Package files must come from one of the URL prefixes in `hosts.json`:
 
 - `https://raw.githubusercontent.com/`: pin the URL to a tag or commit, like `.../<user>/<repo>/v1.0.0/src/tool.lua`.
 - `https://gist.githubusercontent.com/`: use the revision link from the gist's `Raw` button, like `.../<user>/<gist>/raw/<revision>/tool.lua`.
+- `https://github.com/`: for release downloads, like `.../<user>/<repo>/releases/download/v1.0.0/tool.lua`.
 - `https://pastebin.com/raw/`: pastes cannot be pinned, so a paste that is edited later will fail its hash check and stop installing.
 
 The weekly audit re-downloads every file and reports any that no longer match their hash.
+
+## External Sources
+
+The registry also mirrors other ComputerCraft catalogs, so their projects can be searched and installed with CCPM.
+[Pinestore](https://pinestore.cc) is mirrored today, and its projects are named `pinestore/<name>`.
+
+Once a day, the `Sync` workflow runs `ccpm-registry sync <source>`, commits what changed under `external/<source>/`, and publishes the registry.
+It can also be started by hand from the Actions tab.
+
+For each project, the sync:
+
+- Installs commands that only download one file, like `wget <url> <file>` or `pastebin get <code> <file>`, as tracked files with a recorded hash.
+  Files tagged `library` are installed to `lib/` so programs can `require` them, and files saved as `startup` run at boot.
+- Runs every other command, like `wget run <url>`, as the project's own installer after the user confirms it.
+  CCPM cannot track or remove the files an installer creates.
+- Publishes a new version when the source reports an update, or when a downloaded file changes without the source noticing.
+  Versions are the time of the change in UTC, like `2026.929.143005` for 2026-09-29 14:30:05, so they sort by date.
+- Keeps a package's name forever once assigned, even if the project is renamed, and adds the project's ID to names that would clash.
+- Marks projects the source no longer lists as `delisted`, which leaves them out of the published index but keeps their versions.
+
+Synced packages are generated; never edit them by hand.
+Published versions never change, the same as packages published directly.
+
+### Overrides
+
+Maintainers can correct projects in `external/<source>/overrides.json`, keyed by the project's ID in the source.
+The sync applies them every time it runs, and `schemas/overrides.schema.json` describes every key.
+
+```json
+{
+    "$schema": "../../schemas/overrides.schema.json",
+    "123": {
+        "note": "The listed command downloads the installer instead of running it.",
+        "command": "wget run https://example.com/install.lua",
+        "dependencies": { "pixelbox": "*" },
+        "compat": { "cc": ">=1.100" }
+    },
+    "456": { "skip": true }
+}
+```
 
 ## Development
 
@@ -170,6 +213,7 @@ uv run pytest                    # Test the tools
 uv run ccpm-registry validate    # Check the registry offline
 uv run ccpm-registry verify      # Download every file and check its hash
 uv run ccpm-registry build       # Write the published form to `dist/`
+uv run ccpm-registry sync <src>  # Mirror an external source into `external/<src>/`
 ```
 
 `uv run main.py <command>` is the same as `uv run ccpm-registry <command>`, and `uv run main.py -h` lists every command.

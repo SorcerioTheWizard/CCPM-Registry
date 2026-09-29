@@ -1,7 +1,7 @@
 """
 CCPM Registry Validation
 
-Checks the rules the JSON schemas cannot express, like install paths, hosts, dependencies, and program name clashes.
+Checks the rules the JSON schemas cannot express, like install paths, hosts, dependencies, and name clashes between packages.
 """
 
 # MARK: Imports
@@ -10,12 +10,13 @@ from __future__ import annotations
 import re
 from collections import defaultdict
 
-from ccpm_registry.registry import Package, Problem, Registry
+from ccpm_registry.registry import Package, Problem, Registry, external_sources, load_overrides
 from ccpm_registry.semver import parse_range
 
 # MARK: Constants
 SAFE_PATH_PATTERN = re.compile(r"^[A-Za-z0-9._/-]+$")
 BIN_PATTERN = re.compile(r"^bin/[A-Za-z0-9_-]+\.lua$")
+MODULE_FILE_PATTERN = re.compile(r"^lib/[A-Za-z0-9_-]+\.lua$")
 COMPAT_KEYS = ("cc", "mc")
 
 
@@ -42,9 +43,11 @@ def _check_path(package: Package, path: str) -> str | None:
             return f"program `{path}` must be a `.lua` file directly inside `bin/`"
         return None
 
-    # Keep libraries under the package's own module name
+    # Keep libraries under the package's own module name, except single file libraries synced from external sources
     if segments[0] == "lib":
         if path == f"lib/{package.name}.lua" or (len(segments) > 2 and segments[1] == package.name):
+            return None
+        if package.source and MODULE_FILE_PATTERN.match(path):
             return None
         return f"library `{path}` must be `lib/{package.name}.lua` or inside `lib/{package.name}/`"
 
@@ -139,9 +142,9 @@ def _check_ranges(registry: Registry, package: Package, manifest: dict, where: s
     return problems
 
 
-def _check_native(package: Package, manifest: dict, where: str) -> list[Problem]:
+def _check_origin(package: Package, manifest: dict, where: str) -> list[Problem]:
     """
-    Checks rules that only apply to packages published directly to this registry.
+    Checks the rules that differ between packages published directly and packages synced from external sources.
 
     Args:
         package: The package.
@@ -151,16 +154,47 @@ def _check_native(package: Package, manifest: dict, where: str) -> list[Problem]
     Returns:
         The problems found.
     """
-    # Require tracked files so installs can be removed and verified
-    if manifest["kind"] != "files":
-        return [Problem(where, "packages published to this registry must use the `files` kind")]
+    origin = package.meta.get("origin")
+
+    # Require tracked files for packages published directly, so installs can be removed and verified
+    if package.source is None:
+        if origin is not None:
+            return [Problem(where, "only packages synced from an external source may have an `origin`")]
+        if manifest["kind"] != "files":
+            return [Problem(where, "packages published to this registry must use the `files` kind")]
+        return []
+
+    # Require synced packages to say where they came from
+    if origin is None or origin["source"] != package.source:
+        return [Problem(where, f"packages synced from `{package.source}` must have an `origin` with that source")]
 
     return []
 
 
-def _check_program_owners(registry: Registry) -> list[Problem]:
+def provides(manifest: dict) -> set[str]:
     """
-    Checks that no two packages install a program with the same name.
+    Lists the names a version makes available on a computer, which must be unique across packages.
+
+    Args:
+        manifest: The version manifest.
+
+    Returns:
+        Names like `program tool` for `bin/tool.lua` and `library tool` for `lib/tool.lua` or `lib/tool/...`.
+    """
+    names = set()
+    for entry in manifest.get("files", []):
+        segments = entry["path"].split("/")
+        if segments[0] == "bin":
+            names.add(f"program {segments[-1].removesuffix('.lua')}")
+        elif segments[0] == "lib" and len(segments) > 1:
+            names.add(f"library {segments[1].removesuffix('.lua')}")
+
+    return names
+
+
+def _check_owners(registry: Registry) -> list[Problem]:
+    """
+    Checks that no two listed packages install a program or library with the same name.
 
     Args:
         registry: The registry.
@@ -168,19 +202,20 @@ def _check_program_owners(registry: Registry) -> list[Problem]:
     Returns:
         The problems found.
     """
-    # Collect the owners of every program path
+    # Collect the owners of every name
     owners: dict[str, set[str]] = defaultdict(set)
     for package in registry.packages.values():
+        if package.meta.get("delisted"):
+            continue
         for manifest in package.versions.values():
-            for entry in manifest.get("files", []):
-                if entry["path"].startswith("bin/"):
-                    owners[entry["path"]].add(package.name)
+            for name in provides(manifest):
+                owners[name].add(package.name)
 
-    # Report shared paths
+    # Report shared names
     return [
-        Problem("packages", f"program `{path}` is installed by more than one package: {', '.join(sorted(names))}")
-        for path, names in sorted(owners.items())
-        if len(names) > 1
+        Problem("packages", f"{name} is installed by more than one package: {', '.join(sorted(packages))}")
+        for name, packages in sorted(owners.items())
+        if len(packages) > 1
     ]
 
 
@@ -206,12 +241,16 @@ def validate_registry(registry: Registry) -> list[Problem]:
             problems.append(Problem(package.folder, "has no versions"))
         for version, manifest in sorted(package.versions.items(), key=lambda item: item[0]):
             where = package.version_path(version)
-            problems.extend(_check_native(package, manifest, where))
+            problems.extend(_check_origin(package, manifest, where))
             problems.extend(_check_files(registry, package, manifest, where))
             problems.extend(_check_ranges(registry, package, manifest, where))
 
     # Check clashes between packages
-    problems.extend(_check_program_owners(registry))
+    problems.extend(_check_owners(registry))
+
+    # Check the maintainer overrides of each external source
+    for source in external_sources(registry.root):
+        problems.extend(load_overrides(registry.root, source)[1])
 
     return problems
 

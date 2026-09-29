@@ -17,11 +17,14 @@ from ccpm_registry.semver import Version, parse_version
 
 # MARK: Constants
 PACKAGES_DIR = "packages"
+EXTERNAL_DIR = "external"
 SCHEMAS_DIR = "schemas"
 HOSTS_FILE = "hosts.json"
 PACKAGE_FILE = "package.json"
 PACKAGE_SCHEMA = "package.schema.json"
 VERSION_SCHEMA = "version.schema.json"
+OVERRIDES_FILE = "overrides.json"
+OVERRIDES_SCHEMA = "overrides.schema.json"
 
 
 # MARK: Classes
@@ -68,6 +71,20 @@ class Package:
         candidates = releases or list(self.versions)
         return max(candidates) if candidates else None
 
+    @property
+    def source(self) -> str | None:
+        """
+        The external source the package was synced from, or `None` for packages published directly.
+        """
+        return self.name.split("/", 1)[0] if "/" in self.name else None
+
+    @property
+    def listed(self) -> bool:
+        """
+        If the package belongs in the published index.
+        """
+        return bool(self.versions) and not self.meta.get("delisted", False)
+
     def version_path(self, version: Version) -> str:
         """
         Gets the registry-relative path of a version manifest.
@@ -76,9 +93,21 @@ class Package:
             version: The version.
 
         Returns:
-            The path, like `packages/foo/1.0.0.json`.
+            The path, like `packages/foo/1.0.0.json` or `external/pinestore/foo/1.0.0.json`.
         """
         return f"{self.folder}/{version}.json"
+
+    def published_path(self, version: Version) -> str:
+        """
+        Gets the path clients download a version manifest from, relative to the published registry.
+
+        Args:
+            version: The version.
+
+        Returns:
+            The path, like `packages/foo/1.0.0.json` or `packages/pinestore/foo/1.0.0.json`.
+        """
+        return f"{PACKAGES_DIR}/{self.name}/{version}.json"
 
 
 @dataclass
@@ -107,7 +136,7 @@ class Registry:
 
 
 # MARK: Functions
-def _read_json(root: Path, path: str, problems: list[Problem]) -> dict | None:
+def read_json(root: Path, path: str, problems: list[Problem]) -> dict | None:
     """
     Reads a JSON object file, recording a problem if it cannot be read.
 
@@ -133,7 +162,21 @@ def _read_json(root: Path, path: str, problems: list[Problem]) -> dict | None:
     return data
 
 
-def _check_schema(validator: Draft202012Validator, data: dict, path: str, problems: list[Problem]) -> bool:
+def write_json(root: Path, path: str, data: dict) -> None:
+    """
+    Writes a JSON file in the registry's readable style, creating its folder.
+
+    Args:
+        root: The registry root.
+        path: The registry-relative path.
+        data: The data to write.
+    """
+    target = root / path
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(json.dumps(data, indent=4, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
+
+
+def check_schema(validator: Draft202012Validator, data: dict, path: str, problems: list[Problem]) -> bool:
     """
     Checks data against a schema, recording every violation.
 
@@ -154,7 +197,7 @@ def _check_schema(validator: Draft202012Validator, data: dict, path: str, proble
     return not errors
 
 
-def _load_validator(root: Path, name: str) -> Draft202012Validator:
+def load_validator(root: Path, name: str) -> Draft202012Validator:
     """
     Loads a schema from the registry's schema folder.
 
@@ -167,6 +210,44 @@ def _load_validator(root: Path, name: str) -> Draft202012Validator:
     """
     schema = json.loads((root / SCHEMAS_DIR / name).read_text(encoding="utf-8"))
     return Draft202012Validator(schema)
+
+
+def load_overrides(root: Path, source: str) -> tuple[dict[str, dict], list[Problem]]:
+    """
+    Loads the maintainer overrides of an external source, if it has any.
+
+    Args:
+        root: The registry root.
+        source: The source name.
+
+    Returns:
+        The overrides keyed by project ID, and the problems found in the file.
+    """
+    path = f"{EXTERNAL_DIR}/{source}/{OVERRIDES_FILE}"
+    if not (root / path).exists():
+        return {}, []
+
+    # Check the file against its schema
+    problems: list[Problem] = []
+    data = read_json(root, path, problems)
+    if data is None or not check_schema(load_validator(root, OVERRIDES_SCHEMA), data, path, problems):
+        return {}, problems
+
+    return {key: value for key, value in data.items() if key != "$schema"}, []
+
+
+def external_sources(root: Path) -> list[str]:
+    """
+    Lists the external sources that have a folder in the registry.
+
+    Args:
+        root: The registry root.
+
+    Returns:
+        The source names, sorted.
+    """
+    external_dir = root / EXTERNAL_DIR
+    return sorted(path.name for path in external_dir.iterdir() if path.is_dir()) if external_dir.is_dir() else []
 
 
 def _load_package(root: Path, folder: str, validators: tuple[Draft202012Validator, Draft202012Validator], problems: list[Problem]) -> Package | None:
@@ -186,8 +267,8 @@ def _load_package(root: Path, folder: str, validators: tuple[Draft202012Validato
 
     # Load the metadata
     meta_path = f"{folder}/{PACKAGE_FILE}"
-    meta = _read_json(root, meta_path, problems)
-    if meta is None or not _check_schema(package_validator, meta, meta_path, problems):
+    meta = read_json(root, meta_path, problems)
+    if meta is None or not check_schema(package_validator, meta, meta_path, problems):
         return None
     package = Package(meta["name"], folder, meta)
 
@@ -205,11 +286,36 @@ def _load_package(root: Path, folder: str, validators: tuple[Draft202012Validato
             continue
 
         # Keep versions that match the schema
-        manifest = _read_json(root, version_path, problems)
-        if manifest is not None and _check_schema(version_validator, manifest, version_path, problems):
+        manifest = read_json(root, version_path, problems)
+        if manifest is not None and check_schema(version_validator, manifest, version_path, problems):
             package.versions[version] = manifest
 
     return package
+
+
+def _package_folders(root: Path) -> list[tuple[str, str]]:
+    """
+    Lists every package folder with the name its package must have.
+
+    Args:
+        root: The registry root.
+
+    Returns:
+        Pairs of registry-relative folders and expected names, like `("external/pinestore/foo", "pinestore/foo")`.
+    """
+    folders = []
+
+    # List packages published directly
+    packages_dir = root / PACKAGES_DIR
+    if packages_dir.is_dir():
+        folders.extend((f"{PACKAGES_DIR}/{path.name}", path.name) for path in sorted(packages_dir.iterdir()) if path.is_dir())
+
+    # List packages synced from each external source
+    for source in external_sources(root):
+        source_dir = root / EXTERNAL_DIR / source
+        folders.extend((f"{EXTERNAL_DIR}/{source}/{path.name}", f"{source}/{path.name}") for path in sorted(source_dir.iterdir()) if path.is_dir())
+
+    return folders
 
 
 def load_registry(root: Path) -> tuple[Registry, list[Problem]]:
@@ -225,21 +331,19 @@ def load_registry(root: Path) -> tuple[Registry, list[Problem]]:
     problems: list[Problem] = []
 
     # Load the allowed hosts
-    hosts = _read_json(root, HOSTS_FILE, problems) or {}
+    hosts = read_json(root, HOSTS_FILE, problems) or {}
     registry = Registry(root, list(hosts.get("prefixes", [])))
 
     # Load every package folder
-    validators = (_load_validator(root, PACKAGE_SCHEMA), _load_validator(root, VERSION_SCHEMA))
-    packages_dir = root / PACKAGES_DIR
-    folders = sorted(path for path in packages_dir.iterdir() if path.is_dir()) if packages_dir.is_dir() else []
-    for folder in folders:
-        package = _load_package(root, f"{PACKAGES_DIR}/{folder.name}", validators, problems)
+    validators = (load_validator(root, PACKAGE_SCHEMA), load_validator(root, VERSION_SCHEMA))
+    for folder, expected in _package_folders(root):
+        package = _load_package(root, folder, validators, problems)
         if package is None:
             continue
 
         # Require the name to match the folder
-        if package.name != folder.name:
-            problems.append(Problem(f"{package.folder}/{PACKAGE_FILE}", f"name `{package.name}` must match the folder name `{folder.name}`"))
+        if package.name != expected:
+            problems.append(Problem(f"{package.folder}/{PACKAGE_FILE}", f"name `{package.name}` must be `{expected}` to match its folder"))
             continue
         registry.packages[package.name] = package
 

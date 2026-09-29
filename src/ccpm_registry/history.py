@@ -11,7 +11,7 @@ import subprocess
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from ccpm_registry.registry import PACKAGE_FILE, PACKAGES_DIR, Problem
+from ccpm_registry.registry import EXTERNAL_DIR, PACKAGE_FILE, PACKAGES_DIR, Problem
 
 
 # MARK: Classes
@@ -35,10 +35,11 @@ def _is_version_file(path: str) -> bool:
         path: The path to check.
 
     Returns:
-        If the path is `packages/<name>/<version>.json`.
+        If the path is `packages/<name>/<version>.json` or `external/<source>/<name>/<version>.json`.
     """
     parts = path.split("/")
-    return len(parts) == 3 and parts[0] == PACKAGES_DIR and parts[2].endswith(".json") and parts[2] != PACKAGE_FILE
+    depth = {PACKAGES_DIR: 3, EXTERNAL_DIR: 4}.get(parts[0])
+    return len(parts) == depth and parts[-1].endswith(".json") and parts[-1] != PACKAGE_FILE
 
 
 def version_changes(root: Path, base: str) -> VersionChanges:
@@ -57,7 +58,7 @@ def version_changes(root: Path, base: str) -> VersionChanges:
     """
     # List changes between the merge base and `HEAD`
     output = subprocess.run(
-        ["git", "diff", "--name-status", "--no-renames", f"{base}...", "--", PACKAGES_DIR],
+        ["git", "diff", "--name-status", "--no-renames", f"{base}...", "--", PACKAGES_DIR, EXTERNAL_DIR],
         cwd=root,
         check=True,
         capture_output=True,

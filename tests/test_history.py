@@ -41,3 +41,23 @@ def test_finds_added_and_changed_versions(builder):
     changes = version_changes(builder.root, "base")
     assert changes.added == ["packages/tool/1.1.0.json"]
     assert [problem.path for problem in changes.problems] == ["packages/tool/1.0.0.json"]
+
+
+def test_protects_external_versions(builder):
+    git(builder.root, "init", "-q", "-b", "master")
+    builder.write("external/fake/radar/package.json", {"name": "fake/radar"})
+    builder.write("external/fake/radar/2026.901.1.json", program("radar"))
+    git(builder.root, "add", ".")
+    git(builder.root, "commit", "-q", "-m", "base")
+    git(builder.root, "branch", "base")
+
+    # Change the published version and add another
+    builder.write("external/fake/radar/2026.901.1.json", program("radar", startup="bin/radar.lua"))
+    builder.write("external/fake/radar/2026.902.1.json", program("radar"))
+    builder.write("external/fake/radar/package.json", {"name": "fake/radar", "delisted": True})
+    git(builder.root, "add", ".")
+    git(builder.root, "commit", "-q", "-m", "change")
+
+    changes = version_changes(builder.root, "base")
+    assert changes.added == ["external/fake/radar/2026.902.1.json"]
+    assert [problem.path for problem in changes.problems] == ["external/fake/radar/2026.901.1.json"]

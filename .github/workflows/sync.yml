@@ -1,0 +1,47 @@
+name: Sync
+
+# Mirror external catalogs daily, or on demand from the Actions tab
+on:
+  schedule:
+    - cron: "30 5 * * *"
+  workflow_dispatch:
+
+# Never publish at the same time as CI
+concurrency:
+  group: publish
+
+jobs:
+  pinestore:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v6
+
+      - name: Sync
+        run: uv run --locked ccpm-registry sync pinestore
+
+      - name: Validate
+        run: uv run --locked ccpm-registry validate
+
+      # Commit what changed; pushes made by this workflow do not start CI, so it publishes itself
+      - name: Commit
+        id: commit
+        run: |
+          if [ -z "$(git status --porcelain external)" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git add external
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -q -m "Sync pinestore"
+          git pull -q --rebase
+          git push -q
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Publish
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: scripts/publish.sh

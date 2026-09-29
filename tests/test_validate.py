@@ -63,7 +63,7 @@ def test_requires_matching_folder_and_version_names(builder):
     builder.package("good", {"1.0": program("good")})
 
     problems = problems_of(builder)
-    assert any("must match the folder name" in p for p in problems)
+    assert any("name `other` must be `tool` to match its folder" in p for p in problems)
     assert any("packages/good/1.0.json" in p and "file name must be the version" in p for p in problems)
 
 
@@ -146,3 +146,50 @@ def test_requires_versions_and_hosts(builder):
     problems = problems_of(builder)
     assert any("packages/tool: has no versions" in p for p in problems)
     assert any("hosts.json" in p for p in problems)
+
+
+def external(builder, slug: str, versions: dict[str, dict], **meta) -> None:
+    """
+    Writes a package synced from the `fake` source.
+
+    Args:
+        builder: The registry builder.
+        slug: The name after the source prefix.
+        versions: Version manifests keyed by version.
+        **meta: Metadata overriding the defaults.
+    """
+    base = {"name": f"fake/{slug}", "description": "Synced.", "author": "Tester", "origin": {"source": "fake", "id": slug, "url": "https://example.com"}}
+    builder.write(f"external/fake/{slug}/package.json", {**base, **meta})
+    for version, manifest in versions.items():
+        builder.write(f"external/fake/{slug}/{version}.json", manifest)
+
+
+def test_accepts_external_installers_and_module_files(builder):
+    external(builder, "app", {"1.0.0": {"kind": "installer", "installer": {"command": "wget run https://example.com/i.lua"}}})
+    external(builder, "lib", {"1.0.0": {"kind": "files", "files": [file_entry("lib/pixel.lua")]}})
+
+    assert problems_of(builder) == []
+
+
+def test_requires_external_origins_and_keeps_native_rules(builder):
+    external(builder, "app", {"1.0.0": program("app")}, origin={"source": "other", "id": "1", "url": "https://example.com"})
+    builder.package("native", {"1.0.0": {"kind": "files", "files": [file_entry("lib/pixel.lua")]}}, origin={"source": "fake", "id": "1", "url": "https://example.com"})
+
+    problems = problems_of(builder)
+    assert any("must have an `origin` with that source" in p for p in problems)
+    assert any("only packages synced from an external source may have an `origin`" in p for p in problems)
+    assert any("must be `lib/native.lua`" in p for p in problems)
+
+
+def test_rejects_library_clashes_but_ignores_delisted_packages(builder):
+    builder.package("pixel", {"1.0.0": {"kind": "files", "files": [file_entry("lib/pixel/init.lua")]}})
+    external(builder, "one", {"1.0.0": {"kind": "files", "files": [file_entry("lib/pixel.lua")]}})
+    external(builder, "two", {"1.0.0": program("tool")})
+    builder.package("tool")
+    external(builder, "gone", {"1.0.0": program("gone")}, delisted=True)
+    builder.package("gone")
+
+    problems = problems_of(builder)
+    assert any("library pixel is installed by more than one package: fake/one, pixel" in p for p in problems)
+    assert any("program tool is installed by more than one package: fake/two, tool" in p for p in problems)
+    assert not any("program gone" in p for p in problems)

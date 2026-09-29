@@ -1,7 +1,7 @@
 """
 CCPM Registry CLI
 
-Command line entry point for validating, verifying, and building the registry.
+Command line entry point for validating, verifying, building, and syncing the registry.
 """
 
 # MARK: Imports
@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 import sys
+from datetime import UTC, datetime
 from pathlib import Path
 
 import httpx
@@ -17,6 +18,8 @@ from ccpm_registry.build import build_dist
 from ccpm_registry.history import version_changes
 from ccpm_registry.manifest import ManifestRequest, build_manifest, write_manifest
 from ccpm_registry.registry import PACKAGE_FILE, PACKAGES_DIR, Problem, Registry, load_registry
+from ccpm_registry.sources import SOURCES
+from ccpm_registry.sync import sync_source
 from ccpm_registry.validate import validate_registry
 from ccpm_registry.verify import create_client, hash_url, verify_files
 
@@ -212,6 +215,29 @@ def _command_manifest(args: argparse.Namespace) -> int:
     return 0
 
 
+def _command_sync(args: argparse.Namespace) -> int:
+    """
+    Mirrors an external catalog into the registry.
+
+    Args:
+        args: The parsed arguments.
+
+    Returns:
+        The exit code.
+    """
+    source = SOURCES[args.source]()
+    try:
+        with create_client() as client:
+            report = sync_source(args.root, source, client, datetime.now(UTC))
+    except (httpx.HTTPError, ValueError) as error:
+        print(f"`{args.source}` could not be synced: {error}", file=sys.stderr)
+        return 1
+
+    # Report failed projects without failing the sync, so one broken project cannot block the rest
+    print(report)
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     """
     Builds the argument parser.
@@ -255,6 +281,11 @@ def build_parser() -> argparse.ArgumentParser:
     manifest.add_argument("--mc", metavar="RANGE", help="the Minecraft versions it works on")
     manifest.add_argument("--startup", metavar="PATH", help="a `bin/` file to run at boot")
     manifest.set_defaults(handler=_command_manifest)
+
+    # Add the external source mirror
+    sync = commands.add_parser("sync", help="mirror an external catalog into `external/<source>/`")
+    sync.add_argument("source", choices=sorted(SOURCES), help="the catalog to mirror")
+    sync.set_defaults(handler=_command_sync)
 
     return parser
 

@@ -50,6 +50,9 @@ jobs:
     needs: check
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
+    # Never publish at the same time as the sync
+    concurrency:
+      group: publish
     permissions:
       contents: write
     steps:
@@ -57,16 +60,7 @@ jobs:
 
       - uses: astral-sh/setup-uv@v6
 
-      - name: Build
-        run: uv run --locked ccpm-registry build --out dist
-
-      # Replace the `dist` branch with the fresh build
-      - name: Publish to the dist branch
+      - name: Publish
         env:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          cd dist
-          git init -q -b dist
-          git add -A
-          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -q -m "Publish $GITHUB_SHA"
-          git push -f -q "https://x-access-token:$TOKEN@github.com/$GITHUB_REPOSITORY.git" dist
+        run: scripts/publish.sh
