@@ -1,0 +1,104 @@
+{
+    "$schema": "../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://raw.githubusercontent.com/SorcerioTheWizard/ComputerCraft-Package-Manager/ce98ca12a59ad288c02b91fcf2596a78c7262b34/src/bin/ccpm.lua",
+            "path": "bin/ccpm.lua",
+            "sha256": "77f21e6272f27ea7ee93d6ea1f0416eecbfe934b29bde8dac4c5c869b0197b19"
+        },
+        {
+            "url": "https://raw.githubusercontent.com/SorcerioTheWizard/ComputerCraft-Package-Manager/ce98ca12a59ad288c02b91fcf2596a78c7262b34/src/lib/ccpm/cli.lua",
+            "path": "lib/ccpm/cli.lua",
+            "sha256": "2a334c24bb79016cce1abf6b30770ccf0304cedd374f3090b9d586423922308c"
+        },
+        {
+            "url": "https://raw.githubusercontent.com/SorcerioTheWizard/ComputerCraft-Package-Manager/ce98ca12a59ad288c02b91fcf2596a78c7262b34/src/lib/ccpm/completion.lua",
+            "path": "lib/ccpm/completion.lua",
+            "sha256": "21b21afa1cb961b4869a97b936c32e4146c22cfc9ef4f922b2f2d9454bad9ef4"
+        },
+        {
+            "url": "https://raw.githubusercontent.com/SorcerioTheWizard/ComputerCraft-Package-Manager/ce98ca12a59ad288c02b91fcf2596a78c7262b34/src/lib/ccpm/config.lua",
+            "path": "lib/ccpm/config.lua",
+            "sha256": "89b95355694dbbb460b60e85dd73cc107772bc8058eb0fcd2c40ecf506ac7776"
+        },
+        {
+            "url": "https://raw.githubusercontent.com/SorcerioTheWizard/ComputerCraft-Package-Manager/ce98ca12a59ad288c02b91fcf2596a78c7262b34/src/lib/ccpm/env.lua",
+            "path": "lib/ccpm/env.lua",
+            "sha256": "a5d9e8ddf08d065eb9cb9008d29f2755bd5ef1e447d7d03e296a4587844c721e"
+        },
+        {
+            "url": "https://raw.githubusercontent.com/SorcerioTheWizard/ComputerCraft-Package-Manager/ce98ca12a59ad288c02b91fcf2596a78c7262b34/src/lib/ccpm/files.lua",
+            "path": "lib/ccpm/files.lua",
+            "sha256": "e92da513c283f17edfada885822d32498d7d7d8b326419ab3139f32c4a9307bd"
+        },
+        {
+            "url": "https://raw.githubusercontent.com/SorcerioTheWizard/ComputerCraft-Package-Manager/ce98ca12a59ad288c02b91fcf2596a78c7262b34/src/lib/ccpm/init.lua",
+            "path": "lib/ccpm/init.lua",
+            "sha256": "93d4ddfa98c0d8639fa2db9c982c0719ed43828aca37a8801d613fb37cfbe44d"
+        },
+        {
+            "url": "https://raw.githubusercontent.com/SorcerioTheWizard/ComputerCraft-Package-Manager/ce98ca12a59ad288c02b91fcf2596a78c7262b34/src/lib/ccpm/installer.lua",
+            "path": "lib/ccpm/installer.lua",
+            "sha256": "05de591410a43282440650e3c8fafba066aa9b2cb9102ee9a1c10830ce443512"
+        },
+        {
+            "url": "https://raw.githubusercontent.com/SorcerioTheWizard/ComputerCraft-Package-Manager/ce98ca12a59ad288c02b91fcf2596a78c7262b34/src/lib/ccpm/manager.lua",
+            "path": "lib/ccpm/manager.lua",
+            "sha256": "17c018a63e1c877d805b6822d291993dec952033269a6538e9aeee438aec8ba4"
+        },
+        {
+            "url": "https://raw.githubusercontent.com/SorcerioTheWizard/ComputerCraft-Package-Manager/ce98ca12a59ad288c02b91fcf2596a78c7262b34/src/lib/ccpm/net.lua",
+            "path": "lib/ccpm/net.lua",
+            "sha256": "14bc1f6bc4528e9f97b8807e765bd23328202c752d3b932a38791ec0a59b6aaf"
+        },
+        {
+            "url": "https://raw.githubusercontent.com/SorcerioTheWizard/ComputerCraft-Package-Manager/ce98ca12a59ad288c02b91fcf2596a78c7262b34/src/lib/ccpm/origins.lua",
+            "path": "lib/ccpm/origins.lua",
+            "sha256": "63e846e58959db214e97133a3031c1a5ecd780c597c90f0ac2e9a9e50f310c67"
+        },
+        {
+            "url": "https://raw.githubusercontent.com/SorcerioTheWizard/ComputerCraft-Package-Manager/ce98ca12a59ad288c02b91fcf2596a78c7262b34/src/lib/ccpm/paths.lua",
+            "path": "lib/ccpm/paths.lua",
+            "sha256": "80b9cc5c17e4520c8343584c19412db7099450137a434fa19304d2550a46be74"
+        },
+        {
+            "url": "https://raw.githubusercontent.com/SorcerioTheWizard/ComputerCraft-Package-Manager/ce98ca12a59ad288c02b91fcf2596a78c7262b34/src/lib/ccpm/registry.lua",
+            "path": "lib/ccpm/registry.lua",
+            "sha256": "093245e0dfe55973addbc854034779391ce86478244377dbb3c643d8d3994f70"
+        },
+        {
+            "url": "https://raw.githubusercontent.com/SorcerioTheWizard/ComputerCraft-Package-Manager/ce98ca12a59ad288c02b91fcf2596a78c7262b34/src/lib/ccpm/resolver.lua",
+            "path": "lib/ccpm/resolver.lua",
+            "sha256": "3bb0129aa5b68833700799ce901c1fa05dcae42ba3b650a49b3c11f97707ae86"
+        },
+        {
+            "url": "https://raw.githubusercontent.com/SorcerioTheWizard/ComputerCraft-Package-Manager/ce98ca12a59ad288c02b91fcf2596a78c7262b34/src/lib/ccpm/semver.lua",
+            "path": "lib/ccpm/semver.lua",
+            "sha256": "c95b9ea9b2893678c14345579e29f5141bbdc2c437811ca3cfff9040f2bec8a8"
+        },
+        {
+            "url": "https://raw.githubusercontent.com/SorcerioTheWizard/ComputerCraft-Package-Manager/ce98ca12a59ad288c02b91fcf2596a78c7262b34/src/lib/ccpm/setup.lua",
+            "path": "lib/ccpm/setup.lua",
+            "sha256": "2e532c477508a162dd43bc4a6cc15da64172994cc004f77e471193936d729fc5"
+        },
+        {
+            "url": "https://raw.githubusercontent.com/SorcerioTheWizard/ComputerCraft-Package-Manager/ce98ca12a59ad288c02b91fcf2596a78c7262b34/src/lib/ccpm/sha256.lua",
+            "path": "lib/ccpm/sha256.lua",
+            "sha256": "0dc2a283f040af087c92bee57d24a7523af72b4d893c63506f54a3ff21c89884"
+        },
+        {
+            "url": "https://raw.githubusercontent.com/SorcerioTheWizard/ComputerCraft-Package-Manager/ce98ca12a59ad288c02b91fcf2596a78c7262b34/src/lib/ccpm/state.lua",
+            "path": "lib/ccpm/state.lua",
+            "sha256": "7526f6389fe68e35e4667db20d1038aa6c47279635738e11a7717643a4fe9195"
+        },
+        {
+            "url": "https://raw.githubusercontent.com/SorcerioTheWizard/ComputerCraft-Package-Manager/ce98ca12a59ad288c02b91fcf2596a78c7262b34/src/lib/ccpm/ui.lua",
+            "path": "lib/ccpm/ui.lua",
+            "sha256": "1331031b2339c31b6e6c807dde9ee594ea95ed073c5d23902043fa9d6ce6a481"
+        }
+    ],
+    "compat": {
+        "cc": ">=1.100"
+    }
+}
