@@ -1,0 +1,11 @@
+{
+    "$schema": "../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://gist.githubusercontent.com/SorcerioTheWizard/6e363dd7186148677fcfd17d169e631b/raw/d4538312d481e61cfb9beef068ff03257bca6eb5/OreScanner.lua",
+            "path": "bin/orescanner.lua",
+            "sha256": "db2b44dcbcb11f66167cb1477dd9491ea6fb7c30e04ff7a8a2e24605bdb35f61"
+        }
+    ]
+}

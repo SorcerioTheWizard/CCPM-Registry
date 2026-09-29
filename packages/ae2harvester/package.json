@@ -1,0 +1,12 @@
+{
+    "$schema": "../../schemas/package.schema.json",
+    "name": "ae2harvester",
+    "description": "A turtle program that harvests grown crystals from an Applied Energistics 2 Certus Quartz grower design.",
+    "author": "SorcerioTheWizard",
+    "repository": "https://github.com/SorcerioTheWizard/ComputerCraft-Scripts",
+    "tags": [
+        "turtle",
+        "farming",
+        "applied-energistics"
+    ]
+}

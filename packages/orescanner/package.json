@@ -1,0 +1,12 @@
+{
+    "$schema": "../../schemas/package.schema.json",
+    "name": "orescanner",
+    "description": "Scans for ores around the player and shows them on a radar. Needs a pocket computer with a Geo Scanner from Advanced Peripherals.",
+    "author": "SorcerioTheWizard",
+    "repository": "https://github.com/SorcerioTheWizard/ComputerCraft-Scripts",
+    "tags": [
+        "mining",
+        "pocket",
+        "advanced-peripherals"
+    ]
+}
