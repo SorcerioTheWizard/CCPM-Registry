@@ -10,6 +10,7 @@ It only stores metadata; package files stay wherever their authors host them.
 * [Computer Craft Package Manager Registry](#computer-craft-package-manager-registry)
     * [How It Works](#how-it-works)
     * [Publishing a Package](#publishing-a-package)
+        * [By Hand](#by-hand)
     * [Package Format](#package-format)
         * [Package Metadata](#package-metadata)
         * [Version Manifests](#version-manifests)
@@ -36,6 +37,20 @@ https://raw.githubusercontent.com/SorcerioTheWizard/CCPM-Registry/dist/packages/
 Anyone can host a registry of their own by publishing files in the same layout.
 
 ## Publishing a Package
+
+The easiest way is the publishing wizard.
+Clone this repository, install [uv](https://docs.astral.sh/uv/), and run:
+
+```bash
+uv run ccpm-registry new
+```
+
+It asks for your package's name, description, and version, then where its files are: a GitHub repository, a GitHub gist, Pastebin, or other raw links on an [allowed host](#allowed-hosts).
+It pins every file to the exact version you are publishing, checks it is a text file, records its hash, and suggests where to install it.
+When it is done, it writes the package, checks it with the registry's own rules, and prints the commands to open a pull request.
+Run it again with an existing package's name to publish a new version.
+
+### By Hand
 
 1. Host your files at raw text URLs on an [allowed host](#allowed-hosts), pinned to the exact content you are publishing.
 2. Hash each file: `uv run ccpm-registry hash <url> [<url> ...]`.
@@ -221,6 +236,7 @@ uv run pytest                    # Test the tools
 uv run ccpm-registry validate    # Check the registry offline
 uv run ccpm-registry verify      # Download every file and check its hash
 uv run ccpm-registry build       # Write the published form to `dist/`
+uv run ccpm-registry new         # Publish a package by answering questions
 uv run ccpm-registry sync <src>  # Mirror an external source into `external/<src>/`
 ```
 

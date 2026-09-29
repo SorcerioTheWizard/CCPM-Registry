@@ -20,6 +20,13 @@ MAX_WORKERS = 8
 USER_AGENT = "ccpm-registry"
 
 
+# MARK: Classes
+class NotTextError(ValueError):
+    """
+    Raised when a URL does not serve a text file.
+    """
+
+
 # MARK: Functions
 def create_client() -> httpx.Client:
     """
@@ -48,6 +55,40 @@ def hash_url(client: httpx.Client, url: str) -> str:
     response = client.get(url)
     response.raise_for_status()
     return hashlib.sha256(response.content).hexdigest()
+
+
+def hash_text_file(client: httpx.Client, url: str) -> str:
+    """
+    Downloads a URL, checks it serves a text file like a Lua program, and hashes the exact bytes served.
+
+    Args:
+        client: The HTTP client.
+        url: The URL to download.
+
+    Returns:
+        The lowercase SHA-256 of the response body.
+
+    Raises:
+        httpx.HTTPError: If the download fails.
+        NotTextError: If the URL serves a web page, a binary file, or nothing.
+    """
+    response = client.get(url)
+    response.raise_for_status()
+    data = response.content
+
+    # Reject web pages, empty files, and binary files
+    if "text/html" in response.headers.get("Content-Type", "").lower():
+        raise NotTextError(f"`{url}` is a web page, not a file")
+    if not data:
+        raise NotTextError(f"`{url}` is empty")
+    try:
+        data.decode("utf-8")
+    except UnicodeDecodeError:
+        raise NotTextError(f"`{url}` is not a text file") from None
+    if b"\0" in data:
+        raise NotTextError(f"`{url}` is not a text file")
+
+    return hashlib.sha256(data).hexdigest()
 
 
 def _verify_entry(client: httpx.Client, where: str, entry: dict) -> Problem | None:

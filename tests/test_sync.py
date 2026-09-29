@@ -16,7 +16,8 @@ from ccpm_registry.registry import load_registry
 from ccpm_registry.semver import Version
 from ccpm_registry.sources.base import ExternalProject, normalize_tags, slugify
 from ccpm_registry.sources.pinestore import PinestoreSource
-from ccpm_registry.sync import date_version, normalize_url, parse_download, sync_source
+from ccpm_registry.manifest import normalize_url
+from ccpm_registry.sync import date_version, parse_download, sync_source
 from ccpm_registry.validate import validate_registry
 
 from conftest import program

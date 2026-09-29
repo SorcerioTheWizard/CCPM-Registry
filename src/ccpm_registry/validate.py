@@ -7,8 +7,10 @@ Checks the rules the JSON schemas cannot express, like install paths, hosts, dep
 # MARK: Imports
 from __future__ import annotations
 
+import posixpath
 import re
 from collections import defaultdict
+from urllib.parse import urlparse
 
 from ccpm_registry.registry import Package, Problem, Registry, external_sources, load_overrides
 from ccpm_registry.semver import parse_range
@@ -21,7 +23,7 @@ COMPAT_KEYS = ("cc", "mc")
 
 
 # MARK: Functions
-def _check_path(package: Package, path: str) -> str | None:
+def check_path(package: Package, path: str) -> str | None:
     """
     Checks that an install path is safe and inside a location the package may write to.
 
@@ -77,7 +79,7 @@ def _check_files(registry: Registry, package: Package, manifest: dict, where: st
     seen = set()
     for entry in manifest.get("files", []):
         # Check the install path
-        path_problem = _check_path(package, entry["path"])
+        path_problem = check_path(package, entry["path"])
         if path_problem:
             problems.append(Problem(where, path_problem))
 
@@ -169,6 +171,25 @@ def _check_origin(package: Package, manifest: dict, where: str) -> list[Problem]
         return [Problem(where, f"packages synced from `{package.source}` must have an `origin` with that source")]
 
     return []
+
+
+def program_name(*candidates: str | None) -> str:
+    """
+    Picks a program or module name from the first usable file name.
+
+    Args:
+        *candidates: File names or paths, best first.
+
+    Returns:
+        The name without `.lua`, using only letters, digits, `-`, and `_`, or an empty string.
+    """
+    for candidate in candidates:
+        base = posixpath.basename(urlparse(candidate).path if candidate and "://" in candidate else (candidate or "")).strip()
+        name = re.sub(r"[^A-Za-z0-9_-]+", "-", base.removesuffix(".lua")).strip("-")
+        if name:
+            return name
+
+    return ""
 
 
 def provides(manifest: dict) -> set[str]:

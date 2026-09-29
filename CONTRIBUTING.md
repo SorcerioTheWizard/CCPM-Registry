@@ -22,7 +22,17 @@ Changes to the `ccpm` client itself belong in its own repository.
 
 ## Publishing a Package
 
-The [README](README.md#publishing-a-package) explains the package format in full. In short:
+The easiest way is the publishing wizard, which asks a few questions and writes a valid package for you:
+
+```bash
+uv sync
+uv run ccpm-registry new
+```
+
+It finds your files on GitHub, in a gist, on Pastebin, or at other raw links, pins and hashes them, checks the result, and prints the commands to open a pull request.
+Run it again with your package's name to publish a new version.
+
+To write a package by hand instead, the [README](README.md#publishing-a-package) explains the format in full. In short:
 
 1. Host your files at raw URLs on an [allowed host](README.md#allowed-hosts), pinned to the exact content you are publishing.
 2. Add `packages/<name>/package.json` if the package is new.
@@ -67,6 +77,7 @@ uv run pytest                       # Test the tools
 uv run ccpm-registry validate       # Check the registry offline
 uv run ccpm-registry verify         # Download every published file and check its hash
 uv run ccpm-registry build          # Write the published form to `dist/`
+uv run ccpm-registry new            # Publish a package by answering questions
 uv run ccpm-registry sync <source>  # Mirror an external source into `external/<source>/`
 ```
 

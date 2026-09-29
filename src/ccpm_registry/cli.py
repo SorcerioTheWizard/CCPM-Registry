@@ -1,7 +1,7 @@
 """
 CCPM Registry CLI
 
-Command line entry point for validating, verifying, building, and syncing the registry.
+Command line entry point for publishing, validating, verifying, building, and syncing the registry.
 """
 
 # MARK: Imports
@@ -22,6 +22,7 @@ from ccpm_registry.sources import SOURCES
 from ccpm_registry.sync import sync_source
 from ccpm_registry.validate import validate_registry
 from ccpm_registry.verify import create_client, hash_url, verify_files
+from ccpm_registry.wizard import QuestionaryPrompter, Wizard, WizardCancelled
 
 
 # MARK: Functions
@@ -222,6 +223,26 @@ def _command_manifest(args: argparse.Namespace) -> int:
     return 0
 
 
+def _command_new(args: argparse.Namespace) -> int:
+    """
+    Walks through publishing a package with questions.
+
+    Args:
+        args: The parsed arguments.
+
+    Returns:
+        The exit code.
+    """
+    try:
+        with create_client() as client:
+            Wizard(args.root, QuestionaryPrompter(), client).run()
+    except (WizardCancelled, KeyboardInterrupt):
+        print("Stopped; nothing more was written.", file=sys.stderr)
+        return 1
+
+    return 0
+
+
 def _command_sync(args: argparse.Namespace) -> int:
     """
     Mirrors an external catalog into the registry.
@@ -288,6 +309,10 @@ def build_parser() -> argparse.ArgumentParser:
     manifest.add_argument("--mc", metavar="RANGE", help="the Minecraft versions it works on")
     manifest.add_argument("--startup", metavar="PATH", help="a `bin/` file to run at boot")
     manifest.set_defaults(handler=_command_manifest)
+
+    # Add the publishing wizard
+    new = commands.add_parser("new", help="publish a package, or a new version of one, by answering questions")
+    new.set_defaults(handler=_command_new)
 
     # Add the external source mirror
     sync = commands.add_parser("sync", help="mirror an external catalog into `external/<source>/`")

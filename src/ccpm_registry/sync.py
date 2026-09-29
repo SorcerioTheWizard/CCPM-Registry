@@ -7,20 +7,19 @@ Mirrors an external catalog into `external/<source>/`, publishing a new version 
 # MARK: Imports
 from __future__ import annotations
 
-import posixpath
 import re
 import shlex
 from dataclasses import dataclass, field
 from datetime import UTC, datetime
 from pathlib import Path
-from urllib.parse import urlparse
 
 import httpx
 
+from ccpm_registry.manifest import normalize_url
 from ccpm_registry.registry import EXTERNAL_DIR, PACKAGE_FILE, Package, Registry, load_overrides, load_registry, write_json
 from ccpm_registry.semver import Version
 from ccpm_registry.sources.base import ExternalProject, Source, slugify
-from ccpm_registry.validate import provides
+from ccpm_registry.validate import program_name, provides
 
 # MARK: Constants
 PACKAGE_SCHEMA_REFERENCE = "../../../schemas/package.schema.json"
@@ -35,13 +34,6 @@ INSTALLER_NAME_PATTERN = re.compile(r"install", re.IGNORECASE)
 # GitHub serves files only from release downloads, like `releases/download/v1/tool.lua` or `releases/latest/download/tool.lua`
 GITHUB_PREFIX = "https://github.com/"
 GITHUB_FILE_PATTERN = re.compile(r"^https://github\.com/[^/]+/[^/]+/releases/(latest/)?download/.+")
-
-# Links that serve the same file from a host CCPM allows
-URL_REWRITES = (
-    (re.compile(r"^https?://gist\.github\.com/([^/]+/[^/]+)/raw(/.*)?$"), r"https://gist.githubusercontent.com/\1/raw\2"),
-    (re.compile(r"^https?://github\.com/([^/]+/[^/]+)/raw/(.+)$"), r"https://raw.githubusercontent.com/\1/\2"),
-    (re.compile(r"^https?://raw\.github\.com/(.+)$"), r"https://raw.githubusercontent.com/\1"),
-)
 
 
 # MARK: Classes
@@ -99,23 +91,6 @@ def date_version(moment: datetime) -> Version:
     return Version(utc.year, utc.month * 100 + utc.day, utc.hour * 10000 + utc.minute * 100 + utc.second)
 
 
-def normalize_url(url: str) -> str:
-    """
-    Rewrites links to their raw file equivalents on allowed hosts.
-
-    Args:
-        url: The URL.
-
-    Returns:
-        The rewritten URL, or the URL unchanged.
-    """
-    for pattern, replacement in URL_REWRITES:
-        if pattern.match(url):
-            return pattern.sub(replacement, url)
-
-    return url
-
-
 def is_web_page(url: str) -> bool:
     """
     Recognizes GitHub links that serve a web page or an archive instead of a release file, like a repository page.
@@ -153,25 +128,6 @@ def parse_download(command: str) -> DownloadCommand | None:
         return DownloadCommand(url=f"https://pastebin.com/raw/{tokens[2]}", file=tokens[3] if len(tokens) == 4 else None, run=f"pastebin run {tokens[2]}")
 
     return None
-
-
-def _program_name(*candidates: str | None) -> str:
-    """
-    Picks a program or module name from the first usable file name.
-
-    Args:
-        *candidates: File names or paths, best first.
-
-    Returns:
-        The name without `.lua`, using only letters, digits, `-`, and `_`, or an empty string.
-    """
-    for candidate in candidates:
-        base = posixpath.basename(urlparse(candidate).path if candidate and "://" in candidate else (candidate or "")).strip()
-        name = re.sub(r"[^A-Za-z0-9_-]+", "-", base.removesuffix(".lua")).strip("-")
-        if name:
-            return name
-
-    return ""
 
 
 class _Sync:
@@ -288,7 +244,7 @@ class _Sync:
 
         # Run downloaded installers, since installing is what the author expects them to be used for
         manifest: dict = {"$schema": VERSION_SCHEMA_REFERENCE}
-        name = _program_name(download.file, project.target, url) if download else ""
+        name = program_name(download.file, project.target, url) if download else ""
         if download and INSTALLER_NAME_PATTERN.search(name) and not override.get("command"):
             command = download.run
             download = None
