@@ -15,7 +15,8 @@ import httpx
 
 from ccpm_registry.build import build_dist
 from ccpm_registry.history import version_changes
-from ccpm_registry.registry import Problem, Registry, load_registry
+from ccpm_registry.manifest import ManifestRequest, build_manifest, write_manifest
+from ccpm_registry.registry import PACKAGE_FILE, PACKAGES_DIR, Problem, Registry, load_registry
 from ccpm_registry.validate import validate_registry
 from ccpm_registry.verify import create_client, hash_url, verify_files
 
@@ -154,6 +155,63 @@ def _command_hash(args: argparse.Namespace) -> int:
     return code
 
 
+def _split_pair(text: str, what: str) -> tuple[str, str]:
+    """
+    Splits a `left=right` argument.
+
+    Args:
+        text: The argument.
+        what: What the argument is, for the error message.
+
+    Returns:
+        The two sides.
+
+    Raises:
+        argparse.ArgumentTypeError: If the argument has no `=`.
+    """
+    left, separator, right = text.partition("=")
+    if not separator or not left or not right:
+        raise argparse.ArgumentTypeError(f"`{text}` must look like {what}")
+
+    return left, right
+
+
+def _command_manifest(args: argparse.Namespace) -> int:
+    """
+    Writes a version manifest for files hosted on GitHub.
+
+    Args:
+        args: The parsed arguments.
+
+    Returns:
+        The exit code.
+    """
+    # Collect the manifest's contents
+    request = ManifestRequest(
+        repo=args.github,
+        ref=args.ref,
+        mappings=args.mappings,
+        dependencies=dict(args.depends),
+        compat={key: value for key, value in (("cc", args.cc), ("mc", args.mc)) if value},
+        startup=args.startup,
+    )
+
+    # Build and write it
+    try:
+        with create_client() as client:
+            manifest = build_manifest(client, request)
+        path = write_manifest(args.root, args.package, args.version, manifest)
+    except (httpx.HTTPError, ValueError, FileExistsError) as error:
+        print(error, file=sys.stderr)
+        return 1
+
+    print(f"Wrote `{path.relative_to(args.root).as_posix()}` with {len(manifest['files'])} file(s).")
+    if not (args.root / PACKAGES_DIR / args.package / PACKAGE_FILE).exists():
+        print(f"Add `packages/{args.package}/package.json` before publishing.")
+
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     """
     Builds the argument parser.
@@ -184,6 +242,19 @@ def build_parser() -> argparse.ArgumentParser:
     hash_command = commands.add_parser("hash", help="print the SHA-256 of files to publish")
     hash_command.add_argument("urls", nargs="+", help="the raw file URLs")
     hash_command.set_defaults(handler=_command_hash)
+
+    # Add the manifest writer
+    manifest = commands.add_parser("manifest", help="write a version manifest for files hosted on GitHub, pinned to a commit")
+    manifest.add_argument("package", help="the package name")
+    manifest.add_argument("version", help="the version to publish")
+    manifest.add_argument("mappings", nargs="+", type=lambda text: _split_pair(text, "`<repo path>=<install path>`"), help="`<repo path>=<install path>`; a folder maps every file inside it")
+    manifest.add_argument("--github", required=True, metavar="OWNER/REPO", help="the repository hosting the files")
+    manifest.add_argument("--ref", default="HEAD", help="the branch, tag, or commit to pin (default: the default branch)")
+    manifest.add_argument("--depends", action="append", default=[], type=lambda text: _split_pair(text, "`<package>=<range>`"), metavar="PACKAGE=RANGE", help="a dependency; repeat for more")
+    manifest.add_argument("--cc", metavar="RANGE", help="the ComputerCraft versions it works on")
+    manifest.add_argument("--mc", metavar="RANGE", help="the Minecraft versions it works on")
+    manifest.add_argument("--startup", metavar="PATH", help="a `bin/` file to run at boot")
+    manifest.set_defaults(handler=_command_manifest)
 
     return parser
 

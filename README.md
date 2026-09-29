@@ -44,6 +44,22 @@ Anyone can host a registry of their own by publishing files in the same layout.
 Published versions never change.
 To fix a release, publish a new version.
 
+If your files live in a public GitHub repository, steps 2 and 3 can be done in one command.
+It pins every file to the commit the ref points at and records its hash:
+
+```bash
+uv run ccpm-registry manifest <name> <version> <repo path>=<install path> ... --github <owner>/<repo> --ref <branch, tag, or commit>
+```
+
+A folder maps every file inside it, and `--depends <package>=<range>`, `--cc <range>`, `--mc <range>`, and `--startup <path>` fill in the optional keys.
+For example, CCPM itself is published with:
+
+```bash
+uv run ccpm-registry manifest ccpm 0.1.0 src/bin/ccpm.lua=bin/ccpm.lua src/lib/ccpm=lib/ccpm --github SorcerioTheWizard/ComputerCraft-Package-Manager --ref master
+```
+
+Set `GITHUB_TOKEN` if you hit GitHub's rate limit for anonymous API requests.
+
 A minimal program looks like this:
 
 `packages/orescanner/package.json`

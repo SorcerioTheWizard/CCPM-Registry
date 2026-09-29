@@ -1,0 +1,9 @@
+{
+    "$schema": "../../schemas/package.schema.json",
+    "name": "ccpm",
+    "description": "The ComputerCraft Package Manager. Installs, updates, and removes packages and their dependencies.",
+    "author": "SorcerioTheWizard",
+    "license": "MIT",
+    "repository": "https://github.com/SorcerioTheWizard/ComputerCraft-Package-Manager",
+    "tags": ["package-manager", "installer", "library"]
+}
