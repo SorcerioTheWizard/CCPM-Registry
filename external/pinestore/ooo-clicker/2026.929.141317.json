@@ -1,0 +1,10 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://raw.githubusercontent.com/Jannnn13/cct-stuff/refs/heads/main/ooo-clicker.lua",
+            "path": "bin/ooo-clicker.lua"
+        }
+    ]
+}

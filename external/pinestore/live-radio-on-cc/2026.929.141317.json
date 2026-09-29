@@ -1,0 +1,10 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://pastebin.com/raw/q2xs8rqU",
+            "path": "bin/music.lua"
+        }
+    ]
+}

@@ -1,0 +1,10 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://raw.githubusercontent.com/pisauitab/Visage-LIB-CC/main/visageLIB.lua",
+            "path": "lib/visageLIB.lua"
+        }
+    ]
+}

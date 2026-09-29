@@ -1,0 +1,10 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://raw.githubusercontent.com/simadude/buccshot/refs/heads/main/buccshot.lua",
+            "path": "bin/buccshot.lua"
+        }
+    ]
+}

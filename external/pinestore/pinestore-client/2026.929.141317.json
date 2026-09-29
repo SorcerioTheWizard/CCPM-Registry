@@ -1,0 +1,10 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://gist.githubusercontent.com/CyberL1/906c00930bb84b0bd421a5cf0c6f1b13/raw/pinestore.lua",
+            "path": "bin/pinestore.lua"
+        }
+    ]
+}

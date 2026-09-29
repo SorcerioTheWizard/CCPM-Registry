@@ -1,0 +1,10 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://pastebin.com/raw/BSXnKmSw",
+            "path": "bin/SSS.lua"
+        }
+    ]
+}

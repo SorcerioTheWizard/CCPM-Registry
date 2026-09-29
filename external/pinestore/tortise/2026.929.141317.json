@@ -1,0 +1,10 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://raw.githubusercontent.com/Saithe6/tortise/refs/heads/main/tortise.lua",
+            "path": "lib/tortise.lua"
+        }
+    ]
+}

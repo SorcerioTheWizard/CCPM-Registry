@@ -1,0 +1,10 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://raw.githubusercontent.com/Shlomo1412/PixelUI/main/code_editor_app.lua",
+            "path": "bin/pixelcode.lua"
+        }
+    ]
+}

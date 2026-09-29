@@ -1,0 +1,10 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://raw.githubusercontent.com/Saithe6/scanner-core/refs/heads/main/scanner-core.lua",
+            "path": "lib/scanner-core.lua"
+        }
+    ]
+}

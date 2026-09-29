@@ -1,0 +1,10 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://gist.githubusercontent.com/cyberbit/762ecc475eaab511cb6191052a47a5e3/raw/d2f51fc9ccb26c240ebde694d92a21b87f93e66d/mandelplot.lua",
+            "path": "bin/mandelplot.lua"
+        }
+    ]
+}

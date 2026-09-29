@@ -1,0 +1,10 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://github.com/SammyForReal/consult/releases/latest/download/cosu.lua",
+            "path": "bin/cosu.lua"
+        }
+    ]
+}

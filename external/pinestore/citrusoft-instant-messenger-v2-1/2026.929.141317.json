@@ -1,0 +1,10 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://pastebin.com/raw/TJe7MerS",
+            "path": "bin/citrusoftinstantmessenger.lua"
+        }
+    ]
+}

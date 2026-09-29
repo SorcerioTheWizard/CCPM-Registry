@@ -1,0 +1,10 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://pastebin.com/raw/8tePaCv5",
+            "path": "bin/pool2.lua"
+        }
+    ]
+}

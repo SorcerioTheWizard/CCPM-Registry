@@ -1,0 +1,10 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://raw.githubusercontent.com/Larsh512/pinejam26iforgot/refs/heads/main/sorry.lua",
+            "path": "bin/sorryguys.lua"
+        }
+    ]
+}

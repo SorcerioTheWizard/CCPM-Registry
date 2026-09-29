@@ -1,0 +1,10 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://github.com/ShrekshelleraiserCC/shrekword/releases/latest/download/sword.lua",
+            "path": "lib/sword.lua"
+        }
+    ]
+}

@@ -1,0 +1,10 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://gist.githubusercontent.com/MCJack123/4f7f1635998f44630c8440e81213d32e/raw/5f04972106766afb5105c3c39ff00b3d6e6de667/yahtcc.lua",
+            "path": "bin/yahtcc.lua"
+        }
+    ]
+}

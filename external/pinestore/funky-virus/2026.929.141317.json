@@ -1,0 +1,11 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://pastebin.com/raw/AeEQHm4F",
+            "path": "bin/funky-virus.lua"
+        }
+    ],
+    "startup": "bin/funky-virus.lua"
+}

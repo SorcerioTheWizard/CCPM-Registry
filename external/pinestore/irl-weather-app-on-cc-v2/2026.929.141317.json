@@ -1,0 +1,10 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://pastebin.com/raw/Q5Y6kTAx",
+            "path": "bin/weather.lua"
+        }
+    ]
+}

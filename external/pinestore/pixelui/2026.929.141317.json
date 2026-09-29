@@ -1,0 +1,10 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://raw.githubusercontent.com/Shlomo1412/PixelUI/main/pixelui.lua",
+            "path": "lib/pixelui.lua"
+        }
+    ]
+}

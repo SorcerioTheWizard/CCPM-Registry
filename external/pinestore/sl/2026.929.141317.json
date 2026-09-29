@@ -1,0 +1,10 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://gist.githubusercontent.com/florensie/cc8a6af40fb575c718cea72d2d6dfd83/raw/11f011646466a43fcb749b05618624881db9ee64/sl.lua",
+            "path": "bin/sl.lua"
+        }
+    ]
+}

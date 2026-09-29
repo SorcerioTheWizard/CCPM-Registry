@@ -1,0 +1,10 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://pastebin.com/raw/1W48Lg5Y",
+            "path": "bin/minebreaker.lua"
+        }
+    ]
+}

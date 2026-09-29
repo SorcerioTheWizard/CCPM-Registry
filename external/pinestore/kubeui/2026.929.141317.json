@@ -1,0 +1,10 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://raw.githubusercontent.com/Kuberow/KubeUI/main/kubeui.lua",
+            "path": "lib/kubeui.lua"
+        }
+    ]
+}

@@ -1,0 +1,10 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://pastebin.com/raw/b4vp2T5b",
+            "path": "bin/cherryOS.lua"
+        }
+    ]
+}

@@ -1,0 +1,10 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://pastebin.com/raw/542kZf4z",
+            "path": "bin/planet-garden.lua"
+        }
+    ]
+}

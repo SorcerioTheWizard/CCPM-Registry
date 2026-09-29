@@ -1,0 +1,10 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://raw.githubusercontent.com/Fatboychummy-CC/etc-programs/main/basic-farm.lua",
+            "path": "bin/basic-farm.lua"
+        }
+    ]
+}

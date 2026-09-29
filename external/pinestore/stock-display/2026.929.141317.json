@@ -1,0 +1,10 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "files",
+    "files": [
+        {
+            "url": "https://raw.githubusercontent.com/0ctoqus/CC-StockDisplay/main/StockDisplay.lua",
+            "path": "bin/StockDisplay.lua"
+        }
+    ]
+}
