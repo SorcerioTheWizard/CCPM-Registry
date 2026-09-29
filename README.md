@@ -227,3 +227,5 @@ uv run ccpm-registry sync <src>  # Mirror an external source into `external/<src
 `uv run main.py <command>` is the same as `uv run ccpm-registry <command>`, and `uv run main.py -h` lists every command.
 
 Add or remove dependencies with `uv add` and `uv remove`; never edit `pyproject.toml` dependencies by hand.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for how to publish packages, fix synced ones, and propose changes to the tools.
