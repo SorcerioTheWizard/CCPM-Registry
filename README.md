@@ -161,7 +161,7 @@ Package files must come from one of the URL prefixes in `hosts.json`:
 - `https://github.com/`: for release downloads, like `.../<user>/<repo>/releases/download/v1.0.0/tool.lua`.
 - `https://pastebin.com/raw/`: pastes cannot be pinned, so a paste that is edited later will fail its hash check and stop installing.
 
-The weekly audit re-downloads every file and reports any that no longer match their hash.
+The weekly audit re-downloads every file of the packages published here and reports any that no longer match their hash.
 
 ## External Sources
 
@@ -171,16 +171,22 @@ The registry also mirrors other ComputerCraft catalogs, so their projects can be
 Once a day, the `Sync` workflow runs `ccpm-registry sync <source>`, commits what changed under `external/<source>/`, and publishes the registry.
 It can also be started by hand from the Actions tab.
 
+The sync only reads the source's catalog; it never downloads a project's files.
+Files are downloaded when a computer installs the project, straight from where the author hosts them, exactly like the source's own install command would.
+
 For each project, the sync:
 
-- Installs commands that only download one file, like `wget <url> <file>` or `pastebin get <code> <file>`, as tracked files with a recorded hash.
+- Installs commands that only download one file, like `wget <url> <file>` or `pastebin get <code> <file>`, as tracked files CCPM can update and remove.
   Files tagged `library` are installed to `lib/` so programs can `require` them, and files saved as `startup` run at boot.
 - Runs every other command, like `wget run <url>`, as the project's own installer after the user confirms it.
   CCPM cannot track or remove the files an installer creates.
-- Publishes a new version when the source reports an update, or when a downloaded file changes without the source noticing.
+- Publishes a new version when what the project installs changes, like its command, its download link, or an override.
   Versions are the time of the change in UTC, like `2026.929.143005` for 2026-09-29 14:30:05, so they sort by date.
 - Keeps a package's name forever once assigned, even if the project is renamed, and adds the project's ID to names that would clash.
-- Marks projects the source no longer lists as `delisted`, which leaves them out of the published index but keeps their versions.
+- Marks projects as `delisted` when the source no longer lists them or they cannot be installed, like a command that downloads a web page instead of a file.
+  Delisted packages are left out of the published index but keep their versions, and are listed again once the project is fixed.
+
+Because synced files have no published hash, CCPM installs them unverified, says so before installing, and refuses any download that turns out to be a web page.
 
 Mirroring never costs authors their stats: every time CCPM installs a synced project, it reports the download to the source, so Pinestore download counts keep growing exactly as if the project were installed from Pinestore directly.
 

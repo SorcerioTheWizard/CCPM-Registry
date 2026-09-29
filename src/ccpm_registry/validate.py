@@ -156,13 +156,13 @@ def _check_origin(package: Package, manifest: dict, where: str) -> list[Problem]
     """
     origin = package.meta.get("origin")
 
-    # Require tracked files for packages published directly, so installs can be removed and verified
+    # Require tracked and hashed files for packages published directly, so installs can be removed and verified
     if package.source is None:
         if origin is not None:
             return [Problem(where, "only packages synced from an external source may have an `origin`")]
         if manifest["kind"] != "files":
             return [Problem(where, "packages published to this registry must use the `files` kind")]
-        return []
+        return [Problem(where, f"`{entry['path']}` must have a `sha256`") for entry in manifest["files"] if "sha256" not in entry]
 
     # Require synced packages to say where they came from
     if origin is None or origin["source"] != package.source:

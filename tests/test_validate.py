@@ -193,3 +193,12 @@ def test_rejects_library_clashes_but_ignores_delisted_packages(builder):
     assert any("library pixel is installed by more than one package: fake/one, pixel" in p for p in problems)
     assert any("program tool is installed by more than one package: fake/two, tool" in p for p in problems)
     assert not any("program gone" in p for p in problems)
+
+
+def test_requires_hashes_only_for_native_packages(builder):
+    builder.package("tool", {"1.0.0": {"kind": "files", "files": [{"url": "https://raw.githubusercontent.com/x/tool.lua", "path": "bin/tool.lua"}]}})
+    external(builder, "live", {"1.0.0": {"kind": "files", "files": [{"url": "https://raw.githubusercontent.com/x/live.lua", "path": "bin/live.lua"}]}})
+
+    problems = problems_of(builder)
+    assert any("packages/tool/1.0.0.json" in p and "`bin/tool.lua` must have a `sha256`" in p for p in problems)
+    assert not any("live" in p for p in problems)

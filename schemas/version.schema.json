@@ -21,7 +21,7 @@
             "items": {
                 "type": "object",
                 "additionalProperties": false,
-                "required": ["url", "path", "sha256"],
+                "required": ["url", "path"],
                 "properties": {
                     "url": {
                         "description": "A raw text URL pinned to this exact file content, on an allowed host.",
@@ -33,7 +33,7 @@
                         "type": "string"
                     },
                     "sha256": {
-                        "description": "The lowercase SHA-256 of the exact bytes served by `url`.",
+                        "description": "The lowercase SHA-256 of the exact bytes served by `url`. Required for packages published directly; packages synced from external sources are fetched live, like the source's own install command.",
                         "type": "string",
                         "pattern": "^[0-9a-f]{64}$"
                     }

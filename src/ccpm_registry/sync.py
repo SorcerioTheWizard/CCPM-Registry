@@ -21,7 +21,6 @@ from ccpm_registry.registry import EXTERNAL_DIR, PACKAGE_FILE, Package, Registry
 from ccpm_registry.semver import Version
 from ccpm_registry.sources.base import ExternalProject, Source, slugify
 from ccpm_registry.validate import provides
-from ccpm_registry.verify import hash_url
 
 # MARK: Constants
 PACKAGE_SCHEMA_REFERENCE = "../../../schemas/package.schema.json"
@@ -32,6 +31,10 @@ STARTUP_NAME = "startup"
 
 # Downloaded files named like this are installers the author expects to be run next
 INSTALLER_NAME_PATTERN = re.compile(r"install", re.IGNORECASE)
+
+# GitHub serves files only from release downloads, like `releases/download/v1/tool.lua` or `releases/latest/download/tool.lua`
+GITHUB_PREFIX = "https://github.com/"
+GITHUB_FILE_PATTERN = re.compile(r"^https://github\.com/[^/]+/[^/]+/releases/(latest/)?download/.+")
 
 # Links that serve the same file from a host CCPM allows
 URL_REWRITES = (
@@ -111,6 +114,19 @@ def normalize_url(url: str) -> str:
             return pattern.sub(replacement, url)
 
     return url
+
+
+def is_web_page(url: str) -> bool:
+    """
+    Recognizes GitHub links that serve a web page or an archive instead of a release file, like a repository page.
+
+    Args:
+        url: The URL, after `normalize_url`.
+
+    Returns:
+        If the URL is known not to serve a file CCPM can install.
+    """
+    return url.startswith(GITHUB_PREFIX) and not GITHUB_FILE_PATTERN.match(url)
 
 
 def parse_download(command: str) -> DownloadCommand | None:
@@ -263,16 +279,21 @@ class _Sync:
             self.report.skipped.append(f"{package_name}: no install command")
             return None
 
-        # Run downloaded installers, since installing is what the author expects them to be used for
-        manifest: dict = {"$schema": VERSION_SCHEMA_REFERENCE}
+        # Refuse GitHub pages and archives, which could never be a working program
         download = parse_download(command)
         url = normalize_url(download.url) if download else None
+        if url and is_web_page(url):
+            self.report.skipped.append(f"{package_name}: `{url}` is a GitHub page or archive, not a file download")
+            return None
+
+        # Run downloaded installers, since installing is what the author expects them to be used for
+        manifest: dict = {"$schema": VERSION_SCHEMA_REFERENCE}
         name = _program_name(download.file, project.target, url) if download else ""
         if download and INSTALLER_NAME_PATTERN.search(name) and not override.get("command"):
             command = download.run
             download = None
 
-        # Install other single file downloads from allowed hosts as tracked files
+        # Install other single file downloads from allowed hosts as tracked files, fetched live like the source's own command would
         if download and url and self.registry.is_allowed_url(url):
             library = override.get("library", project.library)
             name = name or slug
@@ -288,13 +309,7 @@ class _Sync:
             name = self._claim(kind, name, package_name, project.id)
             path = f"lib/{name}.lua" if library else f"bin/{name}.lua"
 
-            # Record its contents
-            try:
-                sha256 = hash_url(self.client, url)
-            except httpx.HTTPError as error:
-                self.report.failed.append(f"{package_name}: `{url}` could not be downloaded: {error}")
-                return None
-            manifest.update({"kind": "files", "files": [{"url": url, "path": path, "sha256": sha256}]})
+            manifest.update({"kind": "files", "files": [{"url": url, "path": path}]})
             if starts:
                 manifest["startup"] = path
         else:
@@ -355,7 +370,7 @@ class _Sync:
         if latest is not None and package is not None and package.versions[latest] == manifest:
             return False
 
-        # Date the version when the source changed it, or now when only the files changed
+        # Date the version when the source changed it, or now when only an override or this tool changed it
         version = date_version(project.updated)
         if latest is not None and version <= latest:
             version = date_version(self.now)
@@ -366,18 +381,21 @@ class _Sync:
         write_json(self.root, f"{folder}/{version}.json", manifest)
         return True
 
-    def _sync_project(self, project: ExternalProject) -> None:
+    def _sync_project(self, project: ExternalProject) -> bool:
         """
         Mirrors one project.
 
         Args:
             project: The project.
+
+        Returns:
+            If the project can be installed and belongs in the index.
         """
         override = self.overrides.get(project.id, {})
         package = self.existing.get(project.id)
         if override.get("skip"):
             self.report.skipped.append(f"{self.source.name} project {project.id}: skipped by an override")
-            return
+            return False
 
         # Build the package
         slug = self._slug(project, override)
@@ -385,7 +403,7 @@ class _Sync:
         folder = f"{EXTERNAL_DIR}/{self.source.name}/{slug}"
         manifest = self._manifest(project, override, package_name, slug)
         if manifest is None:
-            return
+            return False
 
         # Write the metadata when it changed
         meta = self._meta(project, package_name)
@@ -398,10 +416,12 @@ class _Sync:
         elif package is not None and package.meta.get("delisted"):
             self.report.updated.append(package_name)
 
+        return True
+
     # MARK: Functions
     def run(self) -> SyncReport:
         """
-        Mirrors every project and delists the ones the source dropped.
+        Mirrors every project and delists the ones the source dropped or that cannot be installed.
 
         Returns:
             What changed.
@@ -412,10 +432,7 @@ class _Sync:
         """
         # Mirror the listed projects
         projects = sorted(self.source.fetch(self.client), key=lambda project: (len(project.id), project.id))
-        listed = set()
-        for project in projects:
-            self._sync_project(project)
-            listed.add(project.id)
+        listed = {project.id for project in projects if self._sync_project(project)}
 
         # Delist the rest, keeping their versions
         for project_id, package in sorted(self.existing.items()):

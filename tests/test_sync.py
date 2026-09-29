@@ -202,8 +202,10 @@ def test_mirrors_a_new_download_as_tracked_files(builder):
     meta = read(builder, "external/fake/radar/package.json")
     assert meta["origin"] == {"source": "fake", "id": "1", "url": "https://example.com/projects/1"}
     assert meta["repository"] == "https://github.com/a/radar"
+
+    # Record where the file comes from without downloading it
     manifest = read(builder, "external/fake/radar/2026.901.120005.json")
-    assert manifest["files"] == [{"url": next(iter(FILES)), "path": "bin/radar.lua", "sha256": hashlib.sha256(next(iter(FILES.values()))).hexdigest()}]
+    assert manifest["files"] == [{"url": next(iter(FILES)), "path": "bin/radar.lua"}]
 
     # Check the result passes the registry's rules
     registry, problems = load_registry(builder.root)
@@ -218,16 +220,17 @@ def test_changes_nothing_when_nothing_changed(builder):
     assert versions(builder, "radar") == ["2026.901.120005"]
 
 
-def test_publishes_new_versions_for_updates_and_silent_file_changes(builder):
+def test_publishes_new_versions_when_the_install_changes(builder):
     sync(builder, [project()])
 
     # Date an update the source reported
     later = datetime(2026, 9, 10, 0, 0, 0, tzinfo=UTC)
-    report = sync(builder, [project(command="wget https://raw.githubusercontent.com/a/radar/v2/radar.lua radar.lua", updated=later)], files={"https://raw.githubusercontent.com/a/radar/v2/radar.lua": b"v2"})
+    report = sync(builder, [project(command="wget https://raw.githubusercontent.com/a/radar/v2/radar.lua radar.lua", updated=later)])
     assert report.updated == ["fake/radar"]
 
-    # Date a file that changed without the source noticing with the sync time
-    sync(builder, [project(command="wget https://raw.githubusercontent.com/a/radar/v2/radar.lua radar.lua", updated=later)], files={"https://raw.githubusercontent.com/a/radar/v2/radar.lua": b"v3"})
+    # Date a change the source did not report, like a new override, with the sync time
+    builder.write("external/fake/overrides.json", {"1": {"compat": {"cc": ">=1.100"}}})
+    sync(builder, [project(command="wget https://raw.githubusercontent.com/a/radar/v2/radar.lua radar.lua", updated=later)])
     assert versions(builder, "radar") == ["2026.901.120005", "2026.910.0", "2026.929.83000"]
 
 
@@ -313,12 +316,44 @@ def test_refuses_broken_overrides(builder):
     assert any("overrides.json" in str(problem) for problem in validate_registry(registry))
 
 
-def test_reports_failed_downloads_and_uninstallable_projects(builder):
-    report = sync(builder, [project(), project("2", "Nothing", command=None)], files={})
+def test_downloads_nothing_but_the_catalog(builder):
+    def refuse(request: httpx.Request) -> httpx.Response:
+        raise AssertionError(f"unexpected download of {request.url}")
 
-    assert report.added == []
-    assert any("could not be downloaded" in reason for reason in report.failed)
+    report = sync_source(builder.root, FakeSource([project()]), httpx.Client(transport=httpx.MockTransport(refuse)), NOW)
+    assert report.added == ["fake/radar"]
+
+
+def test_skips_github_pages_and_projects_without_commands(builder):
+    report = sync(
+        builder,
+        [
+            project("1", "Page", "wget https://github.com/a/page page.lua"),
+            project("2", "Release", "wget https://github.com/a/r/releases/download/v1/r.lua r.lua"),
+            project("3", "Nothing", command=None),
+            project("4", "Latest", "wget https://github.com/a/l/releases/latest/download/l.lua l.lua"),
+            project("5", "Archive", "wget https://github.com/a/z/archive/refs/tags/v1.zip"),
+        ],
+    )
+
+    assert report.added == ["fake/release", "fake/latest"]
+    assert "fake/page: `https://github.com/a/page` is a GitHub page or archive, not a file download" in report.skipped
+    assert any(reason.startswith("fake/archive:") for reason in report.skipped)
     assert "fake/nothing: no install command" in report.skipped
+
+
+def test_delists_projects_that_stop_being_installable(builder):
+    sync(builder, [project("1", "Radar"), project("2", "Other", command="wget run https://example.com/i.lua")])
+
+    # Delist a project whose command broke and one skipped by an override
+    builder.write("external/fake/overrides.json", {"2": {"skip": True}})
+    report = sync(builder, [project("1", "Radar", command="wget https://github.com/a/radar"), project("2", "Other", command="wget run https://example.com/i.lua")])
+    assert sorted(report.delisted) == ["fake/other", "fake/radar"]
+
+    # List it again once fixed
+    report = sync(builder, [project("1", "Radar")])
+    assert report.updated == ["fake/radar"]
+    assert "delisted" not in read(builder, "external/fake/radar/package.json")
 
 
 def test_reads_pinestore_projects():

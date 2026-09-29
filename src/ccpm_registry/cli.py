@@ -95,8 +95,15 @@ def _command_verify(args: argparse.Namespace) -> int:
     if problems:
         return _report(problems)
 
-    # Collect every manifest, or only the ones added since the base
-    manifests = {package.version_path(version): manifest for package in registry.packages.values() for version, manifest in package.versions.items()}
+    # Collect the manifests of listed packages published directly, since synced packages are fetched live
+    manifests = {
+        package.version_path(version): manifest
+        for package in registry.packages.values()
+        if package.source is None and package.listed
+        for version, manifest in package.versions.items()
+    }
+
+    # Keep only the ones added since the base
     if args.base:
         added = set(version_changes(args.root, args.base).added)
         manifests = {where: manifest for where, manifest in manifests.items() if where in added}
