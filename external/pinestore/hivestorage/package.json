@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/hivestorage",
+    "description": "I made this program for my single-player world so I could interact with my Logistics Network (from Create) from anywhere with a Pocket Computer.",
+    "author": "EpicMasonic",
+    "tags": [
+        "utility"
+    ],
+    "repository": "https://github.com/Epicmasonic/HiveStorage/",
+    "origin": {
+        "source": "pinestore",
+        "id": "272",
+        "url": "https://pinestore.cc/projects/272/hivestorage"
+    }
+}
