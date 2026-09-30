@@ -1,0 +1,7 @@
+{
+    "$schema": "../../schemas/overrides.schema.json",
+    "273": {
+        "note": "CCPM itself, already published natively as `ccpm`. Its Pinestore installer would reinstall CCPM outside of CCPM's own tracking.",
+        "skip": true
+    }
+}
