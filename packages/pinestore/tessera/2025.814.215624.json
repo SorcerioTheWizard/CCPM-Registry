@@ -1,0 +1,1 @@
+{"installer":{"command":"wget run https://raw.githubusercontent.com/aximu4/Tessera/main/TesseraInstaller.lua"},"kind":"installer"}
