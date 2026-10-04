@@ -1,0 +1,17 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/rfid-acc-s",
+    "description": "That an program for having redstonne from an rfid badge from clasic peripherals whis an config table for the badge",
+    "author": "rêve de redsonne",
+    "tags": [
+        "library",
+        "fun",
+        "utility"
+    ],
+    "repository": "https://github.com/revederedstonne64/RFID-detector-and-verificator/tree/main",
+    "origin": {
+        "source": "pinestore",
+        "id": "275",
+        "url": "https://pinestore.cc/projects/275/rfid-acc-s"
+    }
+}
