@@ -1,0 +1,1 @@
+{"installer":{"command":"wget run https://github.com/unicornpkg/libunicornpkg/releases/latest/download/install.lua"},"kind":"installer"}

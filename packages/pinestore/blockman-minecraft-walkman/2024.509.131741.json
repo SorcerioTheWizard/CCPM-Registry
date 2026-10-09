@@ -1,0 +1,1 @@
+{"installer":{"command":"wget run \"https://raw.githubusercontent.com/Bluerella/ComputerCraft-Blockman/main/blockmaninstaller.lua\""},"kind":"installer"}
