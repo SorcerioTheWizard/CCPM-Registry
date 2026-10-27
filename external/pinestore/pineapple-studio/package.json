@@ -1,0 +1,14 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/pineapple-studio",
+    "description": "The ultimate ComputerCraft IDE",
+    "author": "Quarry",
+    "tags": [
+        "utility"
+    ],
+    "origin": {
+        "source": "pinestore",
+        "id": "280",
+        "url": "https://pinestore.cc/projects/280/pineapple-studio"
+    }
+}
