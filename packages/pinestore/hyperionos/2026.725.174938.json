@@ -1,0 +1,1 @@
+{"installer":{"command":"wget run https://git.astronand.dev/Hyperion/HyperionOS/raw/branch/main/installers/HyperionOS-install-cct.lua"},"kind":"installer"}

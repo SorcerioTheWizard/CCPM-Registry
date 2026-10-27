@@ -1,0 +1,1 @@
+{"installer":{"command":"wget run https://raw.githubusercontent.com/DragonVoyageur/BIM/main/BIMInstaller.lua /"},"kind":"installer"}
