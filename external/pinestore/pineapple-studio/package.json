@@ -6,6 +6,7 @@
     "tags": [
         "utility"
     ],
+    "repository": "https://gitlab.com/quarrydev/pineapple-studio",
     "origin": {
         "source": "pinestore",
         "id": "280",
