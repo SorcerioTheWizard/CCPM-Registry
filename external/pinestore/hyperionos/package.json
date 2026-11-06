@@ -4,6 +4,7 @@
     "description": "HyperionOS is a unix-inspired OS that can run in any lua enviroment.",
     "author": "Astronand",
     "tags": [
+        "utility",
         "library",
         "os"
     ],

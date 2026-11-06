@@ -1,0 +1,7 @@
+{
+    "$schema": "../../../schemas/version.schema.json",
+    "kind": "installer",
+    "installer": {
+        "command": "wget run https://gitlab.com/quarrydev/pineapple-studio/-/raw/main/install.lua"
+    }
+}
