@@ -1,0 +1,1 @@
+{"installer":{"command":"wget https://github.com/MCJack123/tracc/raw/libtracc/tracc.lua tracc.lua; wget https://github.com/MCJack123/tracc/raw/libtracc/libtracc.lua libtracc.l"},"kind":"installer"}

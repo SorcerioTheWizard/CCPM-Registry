@@ -1,0 +1,1 @@
+{"installer":{"command":"wget https://codeberg.org/mueller_minki/PinePix/archive/main.zip example.lua"},"kind":"installer"}

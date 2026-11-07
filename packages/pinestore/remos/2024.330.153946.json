@@ -1,0 +1,1 @@
+{"installer":{"command":"wget run https://raw.githubusercontent.com/MasonGulu/remos/main/install.lua"},"kind":"installer"}
