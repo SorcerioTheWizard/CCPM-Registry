@@ -1,0 +1,1 @@
+{"installer":{"command":"wget run https://raw.githubusercontent.com/Kuberow/OZY-OS/main/install.lua"},"kind":"installer"}

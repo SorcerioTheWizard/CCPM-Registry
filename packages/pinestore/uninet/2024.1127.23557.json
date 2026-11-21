@@ -1,0 +1,1 @@
+{"installer":{"command":"wget run https://raw.githubusercontent.com/redtoast/UniNet-CC/refs/heads/main/installer.lua"},"kind":"installer"}
