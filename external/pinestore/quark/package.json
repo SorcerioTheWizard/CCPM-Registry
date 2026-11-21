@@ -2,7 +2,7 @@
     "$schema": "../../../schemas/package.schema.json",
     "name": "pinestore/quark",
     "description": "Quark is a lightweight and modern IDE for developing Lua programs in CC:Tweaked.",
-    "author": "ArtJem",
+    "author": "0x04rt3m",
     "tags": [
         "utility"
     ],

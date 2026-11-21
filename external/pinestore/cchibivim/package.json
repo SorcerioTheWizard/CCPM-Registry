@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../schemas/package.schema.json",
+    "name": "pinestore/cchibivim",
+    "description": "Vim-like editor",
+    "author": "zellerex",
+    "tags": [
+        "utility"
+    ],
+    "repository": "https://github.com/rezexell/CChibiVim",
+    "origin": {
+        "source": "pinestore",
+        "id": "284",
+        "url": "https://pinestore.cc/projects/284/cchibivim"
+    }
+}
